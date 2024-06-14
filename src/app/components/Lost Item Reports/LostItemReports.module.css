@@ -1,0 +1,96 @@
+.recentLostItems {
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.recentLostItems h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.recentLostItems ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recentLostItems .item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recentLostItems .item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.recentLostItems .item p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.recentLostItems .item a {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.recentLostItems .item a:hover {
+  text-decoration: underline;
+}
+.recentLostItems {
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.recentLostItems h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.card a {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}

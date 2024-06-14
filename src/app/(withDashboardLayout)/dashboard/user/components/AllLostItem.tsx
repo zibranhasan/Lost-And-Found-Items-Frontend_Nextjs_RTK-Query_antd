@@ -1,14 +1,8 @@
-"use client";
-
 import React from "react";
-import Header from "./components/Header/Header";
-import HeroSection from "./components/Hero/Hero";
-
-import RecentLostItems from "./components/Lost Item Reports/LostItemReports";
-import Footer from "./components/Footer/Footer";
 import { useGetAllLostItemsQuery } from "@/redux/api/userApi";
+import LostItemCard from "./LostItemCard";
 
-export default function Home() {
+const AllLostItem = () => {
   const { data, isLoading, error } = useGetAllLostItemsQuery({});
 
   if (isLoading) return <div>Loading...</div>;
@@ -20,11 +14,11 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
-      <HeroSection />
-      <RecentLostItems items={lostItems} />
-
-      <Footer />
+      {lostItems.map((item: any) => (
+        <LostItemCard key={item.id} item={item} />
+      ))}
     </div>
   );
-}
+};
+
+export default AllLostItem;

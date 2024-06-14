@@ -1,0 +1,42 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  background-image: url("/background.jpg"); /* Optional background image */
+  background-size: cover;
+  background-position: center;
+  color: white; /* Ensure text is readable */
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.headline {
+  font-size: 3rem; /* Adjust size as needed */
+  margin-bottom: 20px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: #fff;
+  background-color: #0070f3; /* Customize button color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #005bb5; /* Darker shade on hover */
+}

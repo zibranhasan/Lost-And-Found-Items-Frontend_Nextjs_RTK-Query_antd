@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff; /* Customize the background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some shadow for a sleek look */
+}
+
+.logo img {
+  max-height: 50px; /* Adjust the logo size as needed */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between nav items */
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #333; /* Customize the text color */
+  font-weight: bold;
+}
+
+.nav ul li a:hover {
+  color: #0070f3; /* Customize the hover color */
+}
+
+.logoutButton {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: darkred;
+}
