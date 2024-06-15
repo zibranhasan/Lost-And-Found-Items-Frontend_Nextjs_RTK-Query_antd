@@ -17,7 +17,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Backend Information
 
 - **Live Link**: [https://assignment-lac-seven.vercel.app/](https://assignment-lac-seven.vercel.app/)
-- **Repository Link**: [https://github.com/Porgramming-Hero-web-course/l2-b2-fullstack-track-assignment-8-zibranhasan](https://github.com/Porgramming-Hero-web-course/l2-b2-fullstack-track-assignment-8-zibranhasan)
+- **Repository Link**: https://github.com/zibranhasan/Lost-And-Found-Items-System-Backend_PostgreSQL_Prisma
 
 ## Getting Started
 
