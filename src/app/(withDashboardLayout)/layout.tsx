@@ -8,6 +8,7 @@ import Image from "next/image";
 import logo from "@/assets/images/cover.png";
 import { jwtDecode } from "jwt-decode";
 import styles from "./DashboardLayout.module.css"; // Corrected path
+import Header from "../components/Header/Header";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -40,27 +41,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={styles.container}>
       {/* Header Section */}
-      <header className={styles.header}>
-        <div className={styles.logo}>
-          <Link href="/">
-            <Image
-              src={logo}
-              width={150}
-              height={50}
-              alt="Logo"
-              className={styles.logoImage}
-            />
-          </Link>
-        </div>
-        <div className={styles.headerLinks}>
-          <Link href="/" className={styles.link}>
-            Home
-          </Link>
-          <button onClick={handleLogout} className={styles.logoutButton}>
-            Logout
-          </button>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <div className={styles.main}>

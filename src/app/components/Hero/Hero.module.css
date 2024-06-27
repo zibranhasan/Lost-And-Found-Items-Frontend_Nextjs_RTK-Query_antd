@@ -1,23 +1,28 @@
 .heroSection {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full viewport height */
-  background-image: url("/background.jpg"); /* Optional background image */
-  background-size: cover;
-  background-position: center;
-  color: white; /* Ensure text is readable */
-  text-align: center;
+  margin-top: 15px;
+  /* border-radius: 10px; */
+  height: 50vh; /* Full viewport height */
+  background: url("/8e65ce2e-4def-4a93-92de-f76ed1582cc5.png") no-repeat center
+    center;
+  background-size: cover; /* Ensure the image covers the entire section */
+  color: #fff; /* White text color for better contrast */
+  margin-bottom: 10px;
 }
 
 .heroContent {
-  max-width: 600px;
-  margin: 0 auto;
+  text-align: center;
+  z-index: 1; /* Ensure content is above the background */
 }
 
 .headline {
-  font-size: 3rem; /* Adjust size as needed */
+  font-size: 3rem;
+  font-weight: bold;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
 }
 
 .buttonGroup {
@@ -27,16 +32,21 @@
 }
 
 .button {
-  padding: 10px 20px;
-  font-size: 1.2rem; /* Adjust size as needed */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Semi-transparent background for buttons */
   color: #fff;
-  background-color: #0070f3; /* Customize button color */
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #005bb5; /* Darker shade on hover */
+  background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
 }

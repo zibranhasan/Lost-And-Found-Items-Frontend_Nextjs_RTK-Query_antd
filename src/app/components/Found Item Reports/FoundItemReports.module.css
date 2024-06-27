@@ -7,7 +7,7 @@
   /* max-width: 1200px; Maximum width for the section */
   margin: auto; /* Center the section */
   /* border-radius: 10px; Rounded corners */
-  /* box-shadow: 0 4px 8px rgba(246, 243, 243, 0.1); Light shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
 
 .foundItemReports h2 {
@@ -38,7 +38,7 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(246, 244, 244, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   min-width: 300px; /* Minimum width for each card */
 }
 

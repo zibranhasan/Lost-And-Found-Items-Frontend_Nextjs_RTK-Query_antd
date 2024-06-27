@@ -1,56 +1,69 @@
 .footer {
-  background-color: #333;
+  background-color: #faf8f8;
   color: #fff;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact {
   margin-bottom: 20px;
+  color: #0e0101;
 }
 
 .contact h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
+  color: #0e0101;
 }
 
 .contact p {
   font-size: 1rem;
+  margin: 0;
+  color: #0e0101;
 }
 
-.contact a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.contact a:hover {
-  text-decoration: underline;
+.contact span {
+  /* font-weight: bold; */
+  color: #150101;
 }
 
 .socialLinks {
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-.socialLinks a {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
+.icon {
+  font-size: 1.5rem;
+  color: #0e0101;
+  transition: color 0.3s;
 }
 
-.socialLinks a:hover {
-  text-decoration: underline;
+.icon:hover {
+  color: #0070f3; /* Hover color */
 }
 
-.copyright {
+.additionalLinks {
   margin-bottom: 20px;
+  color: #0070f3;
 }
 
 .additionalLinks a {
-  color: #fff;
-  margin: 0 10px;
+  color: #150101;
+  margin: 0 15px;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .additionalLinks a:hover {
   text-decoration: underline;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #0e0101;
 }

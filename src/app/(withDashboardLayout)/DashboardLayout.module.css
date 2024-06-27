@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,24 +11,29 @@
   background-color: #f0f0f0;
   padding: 20px;
 }
+
 .logo {
   display: flex;
   align-items: center;
 }
+
 .logoImage {
   max-height: 50px; /* Adjust logo size as needed */
 }
+
 .headerLinks {
   display: flex;
   align-items: center;
 }
+
 .link {
   text-decoration: none;
   color: blue;
   cursor: pointer;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   transition: color 0.3s ease;
 }
+
 .logoutButton {
   padding: 10px 20px;
   background-color: red;
@@ -36,24 +42,29 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .main {
   display: flex;
   flex: 1;
 }
+
 .nav {
-  width: 200px;
-  background-color: #ffffff;
+  width: 250px;
+  background-color: #0d2d5492;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .navList {
   list-style-type: none;
   padding: 0;
 }
+
 .navItem {
   margin-bottom: 15px;
   position: relative; /* Ensure subNavList is positioned relative to the parent */
 }
+
 .navLink {
   text-decoration: none;
   color: #333;
@@ -61,11 +72,18 @@
   padding: 10px 15px;
   display: block;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.navLink:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
 .hasSubNav:hover .subNavList {
   display: block;
 }
+
 .subNavList {
   list-style-type: none;
   padding: 10px;
@@ -76,22 +94,32 @@
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 200px; /* Adjust width as needed */
+  z-index: 1; /* Ensure it appears above other elements */
 }
+
 .subNavItem {
   margin-bottom: 10px;
 }
+
 .subNavLink {
   text-decoration: none;
   color: #555;
   padding: 5px 10px;
   display: block;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.subNavLink:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
 .content {
   flex: 1;
   padding: 20px;
 }
+
 .footer {
   background-color: #f0f0f0;
   padding: 20px;

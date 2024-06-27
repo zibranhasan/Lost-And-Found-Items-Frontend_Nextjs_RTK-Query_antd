@@ -133,6 +133,18 @@ export const doctorApi = baseApi.injectEndpoints({
       },
       providesTags: [tagTypes.doctor],
     }),
+    getFoundItemsById: build.query({
+      query: (id: string | string[] | undefined) => ({
+        url: `/found-items/${id}`,
+        method: "GET",
+      }),
+      transformResponse: (response: any) => {
+        return {
+          response,
+        };
+      },
+      providesTags: [tagTypes.doctor],
+    }),
     // update a doctor
 
     getLostItemsWithFiltering: build.query({
@@ -191,7 +203,6 @@ export const {
   useGetAllCategoryQuery,
   useGetAllLostItemsQuery,
   useGetLostItemsByIdQuery,
-
   useCreateFoundItemMutation,
   useGetMyClaimsQuery,
   useGetMyLostItemsQuery,
@@ -203,4 +214,5 @@ export const {
   useGetFoundItemsWithFilteringQuery,
   useUpdateUserStatusMutation,
   useGetAllUsersDataQuery,
+  useGetFoundItemsByIdQuery,
 } = doctorApi;

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/navigation"; // Use next/navigation instead of next/router
+import axios from "axios"; // Import axios for image upload
 import {
   useCreateLostItemMutation,
   useGetAllCategoryQuery,
@@ -22,6 +23,7 @@ const LostItemForm = () => {
     location: "",
   });
   const [isNewCategory, setIsNewCategory] = useState(false);
+  const [image, setImage] = useState<File | null>(null); // State for image
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -55,13 +57,51 @@ const LostItemForm = () => {
     }
   };
 
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImage(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      console.log("formData", formData);
-      await createLostItem(formData).unwrap();
+      let imageUrl = "";
+      if (image) {
+        const formDataToSend = new FormData();
+        formDataToSend.append("image", image);
+
+        const response = await axios.post(
+          "https://api.imgbb.com/1/upload?key=963ca9297bc7cea248773301a33b8428",
+          formDataToSend,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        imageUrl = response.data.data.display_url;
+      }
+
+      await createLostItem({
+        ...formData,
+        photo: imageUrl,
+      }).unwrap();
+
       alert("Lost item created successfully");
-      // router.push("/success"); // Redirect to success page
+      // Reset form data
+      setFormData({
+        userId: formData.userId, // Preserve userId
+        categoryName: "",
+        name: "",
+        description: "",
+        location: "",
+      });
+      setImage(null);
+      setIsNewCategory(false);
+      // Optional: You can reset file input using a ref
+
+      // router.push("/components/allLostItem"); // Redirect to success page
     } catch (error: any) {
       alert("Error creating lost item: " + error.message);
     }
@@ -82,7 +122,7 @@ const LostItemForm = () => {
               name="categoryName"
               value={formData.categoryName}
               onChange={handleCategoryChange}
-              required
+              // required
               className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             >
               <option value="">Select a category</option>
@@ -124,6 +164,14 @@ const LostItemForm = () => {
           </label>
         </div>
         <div>
+          Upload Image:
+          <input
+            type="file"
+            onChange={handleImageChange}
+            className="mt-1 block w-full text-sm text-gray-500 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+          />
+        </div>
+        <div>
           <label className="block text-sm font-medium text-gray-700">
             Description:
             <textarea
@@ -148,6 +196,7 @@ const LostItemForm = () => {
             />
           </label>
         </div>
+
         <button
           type="submit"
           className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

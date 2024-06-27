@@ -10,7 +10,7 @@ const AllLostItem = () => {
 
   const lostItems = data?.response || [];
 
-  console.log("lostItems", lostItems);
+  console.log("recent lostItems", lostItems);
 
   return (
     <div>
