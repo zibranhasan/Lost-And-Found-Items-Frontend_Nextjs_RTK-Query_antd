@@ -2,19 +2,10 @@
 LostAndFound-Frontend (In Progress)
 LostAndFoundSystem-Frontend (WIP)
 LostAndFound-UI (Work in Progress)
-##Live Link:https://lost-and-found-item-frontend.vercel.app/
+##Live Link:[https://lost-and-found-item-frontend.vercel.app/](https://lost-and-found-item-frontend.vercel.app/)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Dashboard Access
-
-### Admin Dashboard
-- **Email**: user4@gmail.com
-- **Password**: 123456
-
-### User Dashboard
-- **Email**: user5@gmail.com
-- **Password**: 123456
 
 ## Backend Information
 
