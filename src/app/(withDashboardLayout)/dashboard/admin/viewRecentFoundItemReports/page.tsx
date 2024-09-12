@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useGetFoundItemsWithFilteringQuery } from "@/redux/api/userApi"; // Adjust import as per your actual hook location
+import { useGetFoundItemsWithFilteringQuery } from "@/redux/api/Api"; // Adjust import as per your actual hook location
 import Image from "next/image";
 
 const Page = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetAllLostItemsQuery } from "@/redux/api/userApi";
+import { useGetAllLostItemsQuery } from "@/redux/api/Api";
 import LostItemCard from "./LostItemCard";
 
 const AllLostItem = () => {

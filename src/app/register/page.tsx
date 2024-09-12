@@ -29,21 +29,24 @@ const RegisterPage = () => {
 
     console.log(name, email, password, bio, age);
 
-    const response = await fetch("http://localhost:3000/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-        profile: {
-          bio,
-          age,
+    const response = await fetch(
+      "https://assignment-lac-seven.vercel.app/api/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }),
-    });
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          profile: {
+            bio,
+            age,
+          },
+        }),
+      }
+    );
 
     if (response.ok) {
       alert("Registration successful");

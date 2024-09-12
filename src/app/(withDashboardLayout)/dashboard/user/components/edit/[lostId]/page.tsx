@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetLostItemsByIdQuery } from "@/redux/api/userApi";
+import { useGetLostItemsByIdQuery } from "@/redux/api/Api";
 import React from "react";
 import Image from "next/image";
 

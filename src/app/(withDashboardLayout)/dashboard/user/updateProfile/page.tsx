@@ -3,7 +3,7 @@
 import {
   useGetMyProfileQuery,
   useUpdateMyProfileMutation,
-} from "@/redux/api/userApi";
+} from "@/redux/api/Api";
 import React, { useState, useEffect } from "react";
 
 interface ProfileData {

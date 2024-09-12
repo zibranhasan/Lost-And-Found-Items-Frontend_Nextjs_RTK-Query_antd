@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 import {
   useGetAllLostItemsQuery,
   useGetFoundItemsWithFilteringQuery,
-} from "@/redux/api/userApi";
+} from "@/redux/api/Api";
 import AboutUs from "./components/AboutUs/AboutUs";
 import FoundItemReports from "./components/Found Item Reports/FoundItemReports";
 

@@ -4,8 +4,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import React from "react";
-import Image from "next/image";
-import logo from "@/assets/images/cover.png";
 import { jwtDecode } from "jwt-decode";
 import styles from "./DashboardLayout.module.css"; // Corrected path
 import Header from "../components/Header/Header";
@@ -55,7 +53,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                     href="/dashboard/user/allLostAndItemReports"
                     className={styles.navLink}
                   >
-                    Recent Lost Item Reports
+                    Lost Item Reports
+                  </Link>
+                </li>
+                <li className={styles.navItem}>
+                  <Link
+                    href="/dashboard/user/allFoundItemReports"
+                    className={styles.navLink}
+                  >
+                    Found Item Reports
                   </Link>
                 </li>
                 <li className={styles.navItem}>
@@ -176,8 +182,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Footer */}
       <footer className={styles.footer}>
-        {/* Footer content */}
-        <p>&copy; All rights reserved.</p>
+        <p className={styles.footerText}>
+          © {new Date().getFullYear()} My Application. All rights reserved.
+        </p>
       </footer>
     </div>
   );

@@ -4,7 +4,7 @@ import React from "react";
 import {
   useGetAllUsersDataQuery,
   useUpdateUserStatusMutation,
-} from "@/redux/api/userApi"; // Adjust import as per your actual hook location
+} from "@/redux/api/Api"; // Adjust import as per your actual hook location
 
 const UserList = () => {
   const {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetMyProfileQuery } from "@/redux/api/userApi";
+import { useGetMyProfileQuery } from "@/redux/api/Api";
 import React from "react";
 
 const ProfilePage = () => {

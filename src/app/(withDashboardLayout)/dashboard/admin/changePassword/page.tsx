@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useChangePasswordMutation } from "@/redux/api/userApi";
+import { useChangePasswordMutation } from "@/redux/api/Api";
 import React from "react";
 
 const ChangePasswordPage = () => {

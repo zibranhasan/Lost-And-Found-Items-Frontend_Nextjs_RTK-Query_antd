@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useChangePasswordMutation } from "@/redux/api/userApi";
+import { useChangePasswordMutation } from "@/redux/api/Api";
 import React from "react";
 
 const ChangePasswordPage = () => {

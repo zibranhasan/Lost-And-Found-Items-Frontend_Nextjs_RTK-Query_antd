@@ -5,7 +5,7 @@ import RecentLostItems from "@/app/components/Lost Item Reports/LostItemReports"
 import {
   useGetAllLostItemsQuery,
   useGetFoundItemsWithFilteringQuery,
-} from "@/redux/api/userApi";
+} from "@/redux/api/Api";
 import React from "react";
 import styles from "./page.module.css"; // Import the CSS module
 

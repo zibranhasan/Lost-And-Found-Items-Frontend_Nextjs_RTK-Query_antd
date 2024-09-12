@@ -1,7 +1,7 @@
 import { baseApi } from "./baseApi";
 import { tagTypes } from "./tag-types";
 
-export const doctorApi = baseApi.injectEndpoints({
+export const AllApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createLostItem: build.mutation({
       query: (data) => ({
@@ -10,7 +10,7 @@ export const doctorApi = baseApi.injectEndpoints({
         contentType: "application/json",
         data,
       }),
-      // invalidatesTags: [tagTypes.doctor],
+      invalidatesTags: [tagTypes.foundItem],
     }),
     createFoundItem: build.mutation({
       query: (data) => ({
@@ -19,7 +19,7 @@ export const doctorApi = baseApi.injectEndpoints({
         contentType: "application/json",
         data,
       }),
-      // invalidatesTags: [tagTypes.doctor],
+      invalidatesTags: [tagTypes.lostItem],
     }),
 
     getAllCategory: build.query({
@@ -33,21 +33,9 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.foundItem, tagTypes.lostItem],
     }),
-    getMyClaims: build.query({
-      query: (arg: Record<string, any>) => ({
-        url: "/myClaims",
-        method: "GET",
-        params: arg,
-      }),
-      transformResponse: (response: any) => {
-        return {
-          response,
-        };
-      },
-      providesTags: [tagTypes.doctor],
-    }),
+
     getMyLostItems: build.query({
       query: (arg: Record<string, any>) => ({
         url: "/my-lost-items",
@@ -59,7 +47,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.lostItem],
     }),
     getMyFoundItems: build.query({
       query: (arg: Record<string, any>) => ({
@@ -72,7 +60,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.foundItem, tagTypes.claim],
     }),
     getMyProfile: build.query({
       query: (arg: Record<string, any>) => ({
@@ -85,7 +73,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.user],
     }),
     updateMyProfile: build.mutation({
       query: (data) => ({
@@ -93,7 +81,7 @@ export const doctorApi = baseApi.injectEndpoints({
         method: "PUT",
         data: data,
       }),
-      invalidatesTags: [tagTypes.doctor, tagTypes.user],
+      invalidatesTags: [tagTypes.user],
     }),
 
     changePassword: build.mutation({
@@ -103,7 +91,7 @@ export const doctorApi = baseApi.injectEndpoints({
         contentType: "application/json",
         data,
       }),
-      invalidatesTags: [tagTypes.doctor],
+      invalidatesTags: [tagTypes.user],
     }),
 
     getAllLostItems: build.query({
@@ -117,7 +105,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.lostItem],
     }),
 
     //get single doctor
@@ -131,7 +119,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.lostItem],
     }),
     getFoundItemsById: build.query({
       query: (id: string | string[] | undefined) => ({
@@ -143,7 +131,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.foundItem, tagTypes.claim],
     }),
     // update a doctor
 
@@ -158,7 +146,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.lostItem],
     }),
 
     getFoundItemsWithFiltering: build.query({
@@ -172,7 +160,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.foundItem, tagTypes.claim],
     }),
     getAllUsersData: build.query({
       query: (arg: Record<string, any>) => ({
@@ -185,7 +173,7 @@ export const doctorApi = baseApi.injectEndpoints({
           response,
         };
       },
-      providesTags: [tagTypes.doctor],
+      providesTags: [tagTypes.user],
     }),
     updateUserStatus: build.mutation({
       query: (data) => ({
@@ -193,7 +181,7 @@ export const doctorApi = baseApi.injectEndpoints({
         method: "PUT",
         data: data.status,
       }),
-      invalidatesTags: [tagTypes.doctor, tagTypes.user],
+      invalidatesTags: [tagTypes.user],
     }),
   }),
 });
@@ -204,7 +192,7 @@ export const {
   useGetAllLostItemsQuery,
   useGetLostItemsByIdQuery,
   useCreateFoundItemMutation,
-  useGetMyClaimsQuery,
+
   useGetMyLostItemsQuery,
   useGetMyFoundItemsQuery,
   useGetMyProfileQuery,
@@ -215,4 +203,4 @@ export const {
   useUpdateUserStatusMutation,
   useGetAllUsersDataQuery,
   useGetFoundItemsByIdQuery,
-} = doctorApi;
+} = AllApi;

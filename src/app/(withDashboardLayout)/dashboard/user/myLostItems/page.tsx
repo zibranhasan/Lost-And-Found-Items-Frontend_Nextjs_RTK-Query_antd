@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetMyLostItemsQuery } from "@/redux/api/userApi";
+import { useGetMyLostItemsQuery } from "@/redux/api/Api";
 import React from "react";
 import Image from "next/image"; // Import Image component
 import "./MyLostItemsPage.css"; // Import the custom CSS file

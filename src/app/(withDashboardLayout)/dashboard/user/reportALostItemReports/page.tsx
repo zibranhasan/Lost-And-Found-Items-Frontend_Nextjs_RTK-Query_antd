@@ -6,7 +6,7 @@ import axios from "axios"; // Import axios for image upload
 import {
   useCreateLostItemMutation,
   useGetAllCategoryQuery,
-} from "@/redux/api/userApi";
+} from "@/redux/api/Api";
 import { jwtDecode } from "jwt-decode"; // Use this without destructuring
 
 const LostItemForm = () => {
