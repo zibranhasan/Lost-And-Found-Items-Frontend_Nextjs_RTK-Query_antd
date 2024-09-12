@@ -14,13 +14,13 @@ The Lost & Found website is a community-driven platform designed to help individ
 - **Hero Section**
   - Headline: "Find what you lost, reunite what you found!"
   - Buttons: "Report a Lost Item", "Report a Found Item"
-  - Optional background image
+  - background image
 - **About Section**
   - Purpose and Mission
-  - Team Information (optional)
+  - Team Information
 - **Recent Lost Item Reports**
   - Displays recent reports with brief details
-- **Extra Sections (Optional)**
+- **Extra Sections**
   - Testimonials
   - Tips
 - **Footer**
@@ -94,11 +94,7 @@ The Lost & Found website is a community-driven platform designed to help individ
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/lostAndFound.git
+   git clone (https://github.com/zibranhasan/Lost-And-Found-Items-Frontend_Nextjs_RTK-Query_antd)
 
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**npm install
+**npm start
