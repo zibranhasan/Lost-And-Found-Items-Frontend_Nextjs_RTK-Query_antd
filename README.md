@@ -1,6 +1,8 @@
 # Lost & Found Website
-##Live Link: https://lost-and-found-item-frontend.vercel.app
-##Backend repo: https://github.com/zibranhasan/lost-and-found-item-backend
+## Live Link: https://lost-and-found-item-frontend.vercel.app
+## Backend repo: https://github.com/zibranhasan/lost-and-found-item-backend
+## Admin: E-mail: admin@gmail.com   Pass:123456
+## User: E-mail: user@gmail.com     Pass:123456
 ## Overview
 
 The Lost & Found website is a community-driven platform designed to help individuals report and reclaim lost items. The platform enables users to report lost and found items, verify ownership, manage profiles, and provides administrative tools for overseeing site activity.
