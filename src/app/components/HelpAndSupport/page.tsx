@@ -17,7 +17,6 @@ const HelpAndSupport: React.FC = () => {
 
   return (
     <div>
-      <Header />
       <div className={styles.helpAndSupport}>
         <div className={styles.header}>
           <h1>Help & Support</h1>

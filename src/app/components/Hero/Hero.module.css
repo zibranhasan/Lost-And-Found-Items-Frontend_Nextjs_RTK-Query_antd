@@ -3,14 +3,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
-  /* border-radius: 10px; */
+  margin: 0;
   height: 50vh; /* Full viewport height */
-  background: url("/8e65ce2e-4def-4a93-92de-f76ed1582cc5.png") no-repeat center
-    center;
   background-size: cover; /* Ensure the image covers the entire section */
   color: #fff; /* White text color for better contrast */
-  margin-bottom: 10px;
+  animation: slide 10s infinite; /* Apply animation */
+}
+
+@keyframes slide {
+  0% {
+    background-image: url("/8e65ce2e-4def-4a93-92de-f76ed1582cc5.png");
+  }
+  20% {
+    background-image: url("/acce-1.jpg");
+  }
+  40% {
+    background-image: url("/acce-2.jpg");
+  }
+  60% {
+    background-image: url("/acce-3.jpg");
+  }
+  80% {
+    background-image: url("/acce-4.jpg");
+  }
+  100% {
+    background-image: url("/8e65ce2e-4def-4a93-92de-f76ed1582cc5.png");
+  }
 }
 
 .heroContent {

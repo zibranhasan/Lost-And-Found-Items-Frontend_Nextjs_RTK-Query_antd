@@ -1,76 +1,122 @@
+/* AboutUs.module.css */
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px;
-  /* border: 1px solid #ddd; /* Add a border to create a box effect */
-  /* border-radius: 5px; */
-  background-color: #fff;
-  max-width: 1250px;
-  height: 325px; /* Set the height to auto to fit content */
-  width: 100%; /* Set a specific width */
-  max-width: 1250px; /* Ensure the width does not exceed 1250px */
-  margin: auto;
+  align-items: center;
+  padding: 60px;
+  background-color: #f9f9f9; /* Very light background */
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
 }
 
 .textSection {
   flex: 1;
-  margin-right: 20px;
-  padding: 20px; /* Add padding for better spacing */
-  color: #333; /* Text color */
+  padding-right: 50px;
+  color: #333; /* Darker text color for contrast */
+  max-width: 600px;
+  position: relative;
 }
 
 .textSection h1 {
-  font-size: 2.5rem; /* Increase the font size */
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #0070f3; /* Set a primary color */
+  color: #ff6f61; /* Soft accent color */
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.textSection h2 {
-  font-size: 1.8rem; /* Set font size for subheadings */
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #005bb5; /* Set a secondary color */
+.textSection h1:hover {
+  color: #ff8563; /* Slight hover effect */
+}
+
+.textSection h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100px;
+  height: 4px;
+  background-color: #ff6f61;
+  border-radius: 2px;
 }
 
 .textSection p {
-  font-size: 1.2rem; /* Increase font size for better readability */
-  line-height: 1.6; /* Set line height for better readability */
-  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666; /* A softer gray for the paragraph */
+  font-family: "Lora", serif;
+  font-weight: 300;
+  margin-top: 20px;
 }
 
 .imageSection {
   display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between the images */
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
 }
 
 .imageContainer {
   position: relative;
-  width: 255px; /* Set the width of the container */
-  height: 200px; /* Set the height of the container */
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Softer image shadow */
+  transition: transform 0.3s ease;
 }
 
-.image {
-  border-radius: 5px;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+.imageContainer:hover {
+  transform: scale(1.05); /* Slight zoom-in on hover */
 }
 
 .overlayImageContainer {
   position: absolute;
-  top: 25%; /* Positioning the overlay image in the fourth quadrant */
-  left: 50%;
-  transform: translate(
-    -25%,
-    25%
-  ); /* Adjust to place the first quadrant of image 2 on the fourth quadrant of image 1 */
-  width: 200px; /* Set the width of the overlay image */
-  height: 210px; /* Set the height of the overlay image */
+  top: 10%;
+  left: 10%;
+  transform: translate(-10%, -10%) rotate(3deg);
+  width: 260px;
+  height: 260px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  z-index: 2;
 }
 
-.overlayImage {
-  border-radius: 5px;
-  object-fit: cover;
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px; /* Adjusted padding for smaller screens */
+  }
+
+  .textSection {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .imageContainer {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* .overlayImageContainer {
+    width: 210px;
+    height: 210px;
+  } */
+
+  .textSection h1 {
+    font-size: 2rem; /* Adjusted for smaller screens */
+  }
+
+  .textSection p {
+    font-size: 1rem;
+  }
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Header from "./components/Header/Header";
+
 import HeroSection from "./components/Hero/Hero";
 
 import RecentLostItems from "./components/Lost Item Reports/LostItemReports";
@@ -25,14 +25,11 @@ export default function Home() {
   const foundItems = FoundItemData?.response || [];
 
   return (
-    <div>
-      <Header />
+    <div style={{ margin: 0, padding: 0 }}>
       <HeroSection />
       <RecentLostItems items={lostItems} />
       <FoundItemReports foundItems={foundItems} />
       <AboutUs />
-
-      <Footer />
     </div>
   );
 }

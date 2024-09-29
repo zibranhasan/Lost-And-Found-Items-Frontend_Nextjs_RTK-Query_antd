@@ -1,8 +1,9 @@
 /* Ensure the overall container takes up the full page */
 .aboutUs {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  padding: 0px 20px;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
 }
 
 /* Style for the main content to provide padding and margin */
@@ -10,7 +11,6 @@
   flex: 1;
   padding: 50px 20px;
   max-width: 800px;
-  margin: auto;
 }
 
 /* Scoped heading styles within a class */

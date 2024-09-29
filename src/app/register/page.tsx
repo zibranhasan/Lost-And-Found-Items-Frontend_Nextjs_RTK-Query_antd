@@ -59,11 +59,11 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <Header />
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <Box
             sx={{
+              marginBottom: 4,
               marginTop: 8,
               display: "flex",
               flexDirection: "column",

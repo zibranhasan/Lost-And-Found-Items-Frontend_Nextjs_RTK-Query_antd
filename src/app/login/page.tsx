@@ -12,9 +12,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/services/actions/userLogin";
-import Header from "../components/Header/Header";
-
-// Adjust the path as needed
+import { useDispatch } from "react-redux";
+import { setUser } from "@/redux/features/authSlice";
 
 const theme = createTheme();
 
@@ -22,103 +21,115 @@ const LoginPage = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // For handling errors
+  const dispatch = useDispatch();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // console.log("Login data:", { email, password });
+    setError(""); // Reset error message
 
     try {
-      const responseData = await loginUser(email, password);
-      // console.log("Login successful:", responseData);
+      const res = await loginUser(email, password);
 
-      // Save the token to local storage
-      localStorage.setItem("token", responseData.data.token);
+      if (res?.data?.id && res?.data?.token) {
+        // Save the token to localStorage
+        localStorage.setItem("token", res.data.token);
 
-      // Redirect based on role
-      if (responseData.data.role === "ADMIN") {
-        router.push("/dashboard/admin");
+        // Dispatch setUser with the whole data payload
+        dispatch(setUser(res.data));
+
+        // Redirect based on the user's role
+        if (res.data.role === "ADMIN") {
+          router.push("/dashboard/admin");
+        } else {
+          router.push("/dashboard/user");
+        }
       } else {
-        router.push("/dashboard/user");
+        setError("Login failed. Please check your credentials.");
       }
     } catch (err: any) {
       console.error("Login failed:", err);
-      alert("Login failed: " + err?.message);
+      setError("Login failed: " + (err?.message || "Something went wrong!"));
     }
   };
 
   return (
-    <div>
-      <Header />
-      <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="xs">
-          <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <Box
+          sx={{
+            marginBottom: 4,
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}></Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          {error && (
+            <Typography color="error" variant="body2" sx={{ mb: 2 }}>
+              {error}
             </Typography>
-            <Box
-              component="form"
-              onSubmit={handleLogin}
-              noValidate
-              sx={{ mt: 1 }}
+          )}
+          <Box
+            component="form"
+            onSubmit={handleLogin}
+            noValidate
+            sx={{ mt: 1 }}
+          >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              inputProps={{ "aria-label": "Email Address" }} // Accessibility
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              inputProps={{ "aria-label": "Password" }} // Accessibility
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="/register" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
               </Grid>
-            </Box>
+              <Grid item>
+                <Link href="/register" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
-        </Container>
-      </ThemeProvider>
-    </div>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 };
 

@@ -1,104 +1,107 @@
-/* FoundItemReports.module.css */
-
 .foundItemReports {
-  padding: 50px 20px;
-  background-color: #f8f9fa; /* Lighter background for a classic look */
+  padding: 20px 20px;
+  background-color: #f8f9fa; /* Light background */
   color: #333;
-  /* max-width: 1200px; Maximum width for the section */
-  margin: auto; /* Center the section */
-  /* border-radius: 10px; Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  margin: 0;
+  border-radius: 10px; /* Rounded corners for the component */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth */
 }
 
 .foundItemReports h2 {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Increased font size */
   margin-bottom: 20px;
+  margin-top: 0;
   text-align: center;
-  color: #0056b3; /* A classic blue for the title */
+  color: #212529; /* Dark text for contrast */
+  padding: 10px; /* Padding around the text */
+  position: relative; /* To position the shadow */
+  background-color: #e9ecef; /* Optional background color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.foundItemReports h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px; /* Height of the shadow */
+  background: rgba(0, 0, 0, 0.1); /* Shadow color */
+  border-radius: 5px; /* Match the header radius */
+  z-index: -1; /* Place it behind the text */
 }
 
 .sliderContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden; /* Hide overflow to prevent scrollbars */
 }
 
 .cardsContainer {
   display: flex;
-  overflow-x: auto; /* Enable horizontal scrolling */
+  flex-direction: row; /* Display cards side by side */
+  overflow: hidden; /* Hide overflow to prevent scrollbars */
   gap: 20px;
-  width: 100%; /* Ensures container takes full width */
-  padding-bottom: 10px; /* Space for scrollbar */
+  width: calc(100% + 20px); /* Prevent scrollbar by adjusting width */
+  transition: transform 0.5s ease; /* Smooth transition */
 }
 
 .card {
-  flex: 0 0 auto; /* Ensure cards do not shrink */
+  flex: 0 0 calc(50% - 20px); /* Adjust width to fit two cards while accounting for gap */
   display: flex;
-  flex-direction: row; /* Ensures photo and details are side by side */
+  flex-direction: row;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 300px; /* Minimum width for each card */
+  padding: 15px; /* Reduced padding for height adjustment */
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
 
 .details {
   flex: 1;
   text-align: left;
-  padding-right: 15px; /* Space between text and image */
+  padding-left: 15px; /* Add padding to the left for better spacing */
 }
 
 .photo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px; /* Adjust width of the photo section */
+  width: 150px;
 }
 
-.imagePlaceholder {
-  width: 100%;
-  height: 120px; /* Adjust height of the image placeholder */
-  background-color: #e9ecef; /* Placeholder color */
+.image {
   border-radius: 5px;
+  height: 100px; /* Set a fixed height for images */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure image covers the area without overflow */
 }
 
 .card h3 {
   font-size: 1.25rem;
   margin-bottom: 10px;
-  color: #212529; /* Darker text for better readability */
+  color: #212529;
 }
 
 .card p {
   font-size: 1rem;
   margin-bottom: 5px;
-  color: #495057; /* Medium gray for secondary text */
+  color: #495057;
 }
 
-.card a {
-  color: #007bff; /* Link color */
+.viewLink {
+  color: #007bff;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s; /* Smooth color transition */
+  transition: color 0.3s;
 }
 
-.card a:hover {
-  color: #0056b3; /* Darker blue on hover */
+.viewLink:hover {
+  color: #0056b3;
   text-decoration: underline;
-}
-
-.showMoreButton {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s; /* Smooth background-color transition */
-}
-
-.showMoreButton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
 }
