@@ -4,6 +4,7 @@ import {
   useGetMyProfileQuery,
   useUpdateMyProfileMutation,
 } from "@/redux/api/Api";
+import { Modal } from "antd";
 import React, { useState, useEffect } from "react";
 
 interface ProfileData {
@@ -21,6 +22,7 @@ const ProfilePage = () => {
     bio: "",
     age: 0,
   });
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
 
   useEffect(() => {
     if (data?.response) {
@@ -47,6 +49,7 @@ const ProfilePage = () => {
     try {
       await updateMyProfile(profileData).unwrap();
       alert("Profile updated successfully!");
+      setIsModalOpen(false); // Close the modal after successful update
     } catch (err) {
       console.error("Failed to update profile: ", err);
     }
@@ -54,13 +57,13 @@ const ProfilePage = () => {
 
   if (isLoading)
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen bg-gray-100">
         <div className="text-lg font-semibold">Loading Profile...</div>
       </div>
     );
   if (isError)
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center h-screen bg-gray-100">
         <div className="text-lg font-semibold text-red-500">
           Error fetching profile
         </div>
@@ -68,10 +71,45 @@ const ProfilePage = () => {
     );
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-3xl font-bold mb-6">Update Profile</h1>
-        <form onSubmit={handleFormSubmit} className="space-y-4">
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-gray-100 p-10">
+      <div className="max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden p-8">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
+          My Profile
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mb-8">
+          <div>
+            <h2 className="text-lg font-semibold text-gray-700">Name</h2>
+            <p className="text-xl text-gray-900">{profileData.name}</p>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-gray-700">Bio</h2>
+            <p className="text-xl text-gray-900">{profileData.bio}</p>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-gray-700">Age</h2>
+            <p className="text-xl text-gray-900">{profileData.age}</p>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-8 py-3 text-lg font-medium text-white bg-indigo-500 hover:bg-indigo-700 rounded-md focus:outline-none focus:ring-4 focus:ring-indigo-400"
+          >
+            Update Profile
+          </button>
+        </div>
+      </div>
+
+      {/* Modal for Update Form */}
+      <Modal
+        title="Update Profile"
+        visible={isModalOpen}
+        onCancel={() => setIsModalOpen(false)}
+        footer={null}
+        centered
+        className="rounded-lg"
+      >
+        <form onSubmit={handleFormSubmit} className="space-y-6">
           <div>
             <label className="block text-lg font-medium text-gray-700">
               Name
@@ -81,7 +119,7 @@ const ProfilePage = () => {
               name="name"
               value={profileData.name}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
@@ -93,7 +131,7 @@ const ProfilePage = () => {
               name="bio"
               value={profileData.bio}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
           <div>
@@ -105,20 +143,20 @@ const ProfilePage = () => {
               name="age"
               value={profileData.age}
               onChange={handleInputChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
-          <div>
+          <div className="flex justify-end">
             <button
               type="submit"
               disabled={isUpdating}
-              className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-400"
             >
               {isUpdating ? "Updating..." : "Update Profile"}
             </button>
           </div>
         </form>
-      </div>
+      </Modal>
     </div>
   );
 };

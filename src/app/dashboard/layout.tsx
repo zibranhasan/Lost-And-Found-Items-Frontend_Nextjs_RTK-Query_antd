@@ -76,13 +76,13 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       ),
     },
     {
-      key: "my-profile",
+      key: "Dashboard",
       icon: <UserOutlined />,
-      label: "My Profile",
+      label: "My Dashboard",
       children: [
         {
-          key: "edit-profile",
-          label: <Link href="/dashboard/user/updateProfile">Edit Profile</Link>,
+          key: "my-profile",
+          label: <Link href="/dashboard/user/updateProfile">My Profile</Link>,
         },
         {
           key: "change-password",
