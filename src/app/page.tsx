@@ -12,6 +12,8 @@ import {
 } from "@/redux/api/Api";
 import AboutUs from "./components/AboutUs/AboutUs";
 import FoundItemReports from "./components/Found Item Reports/FoundItemReports";
+import BlogPage from "./components/BlogSection/blog";
+import ReviewSection from "./components/ReviewSection/ReviewSection";
 
 export default function Home() {
   const { data, isLoading, error } = useGetAllLostItemsQuery({});
@@ -29,6 +31,8 @@ export default function Home() {
       <HeroSection />
       <RecentLostItems items={lostItems} />
       <FoundItemReports foundItems={foundItems} />
+      <BlogPage />
+      <ReviewSection />
       <AboutUs />
     </div>
   );

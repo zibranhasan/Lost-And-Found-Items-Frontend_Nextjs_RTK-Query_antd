@@ -112,13 +112,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   const adminMenuItems = [
     {
-      key: "manage-user-accounts",
+      key: "Dashboard",
       icon: <SettingOutlined />,
-      label: (
-        <Link href="/dashboard/admin/manageUserAccounts">
-          Manage User Accounts
-        </Link>
-      ),
+      label: <Link href="/dashboard/admin/manageUserAccounts">Dashboard</Link>,
     },
     {
       key: "view-recent-posts",
@@ -155,18 +151,6 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider>
-        <div
-          style={{
-            padding: "20px",
-            color: "#fff",
-            fontSize: "20px",
-            textAlign: "center",
-            backgroundColor: "#001529",
-          }}
-        >
-          Dashboard
-        </div>
-
         {/* Ant Design Menu */}
         <Menu
           theme="dark"
@@ -177,7 +161,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       </Sider>
 
       <Layout>
-        <Content style={{ background: "#f0f2f5" }}>{children}</Content>
+        <Content>{children}</Content>
       </Layout>
     </Layout>
   );

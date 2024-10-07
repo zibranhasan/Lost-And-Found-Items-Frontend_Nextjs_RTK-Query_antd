@@ -14,6 +14,10 @@ import { useRouter } from "next/navigation";
 import { loginUser } from "@/services/actions/userLogin";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/features/authSlice";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
 
 const theme = createTheme();
 
@@ -23,6 +27,9 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(""); // For handling errors
   const dispatch = useDispatch();
+
+  const [open, setOpen] = useState(false);
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,6 +58,19 @@ const LoginPage = () => {
       console.error("Login failed:", err);
       setError("Login failed: " + (err?.message || "Something went wrong!"));
     }
+  };
+
+  const handleClickOpen = (role: "user" | "admin") => {
+    if (role === "user") {
+      setCredentials({ email: "user@gmail.com", password: "123456" });
+    } else {
+      setCredentials({ email: "admin@gmail.com", password: "123456" });
+    }
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -127,6 +147,38 @@ const LoginPage = () => {
               </Grid>
             </Grid>
           </Box>
+
+          {/* New Buttons for User and Admin Credentials */}
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => handleClickOpen("user")}
+            sx={{ mt: 2 }}
+          >
+            Show User Credentials
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={() => handleClickOpen("admin")}
+            sx={{ mt: 2 }}
+          >
+            Show Admin Credentials
+          </Button>
+
+          {/* Dialog for Credentials */}
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Credentials</DialogTitle>
+            <DialogContent>
+              <Typography>Email: {credentials.email}</Typography>
+              <Typography>Password: {credentials.password}</Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary">
+                Close
+              </Button>
+            </DialogActions>
+          </Dialog>
         </Box>
       </Container>
     </ThemeProvider>
