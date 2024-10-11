@@ -41,7 +41,6 @@ const LoginPage = () => {
       if (res?.data?.id && res?.data?.token) {
         // Save the token to localStorage
         localStorage.setItem("token", res.data.token);
-
         // Dispatch setUser with the whole data payload
         dispatch(setUser(res.data));
 

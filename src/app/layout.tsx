@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
 import Providers from "@/lib/providers";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
+import MainLayout from "./MainLayout";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Lost and Found Item",
@@ -17,24 +13,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" data-theme="light" className={inter.className}>
+    <html lang="en">
       <body>
         <Providers>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              minHeight: "100vh",
-            }}
-          >
-            <Header />
-            <main style={{ flex: 1 }}>{children}</main>
-            <Footer />
-          </div>
+          <MainLayout style={{ margin: 0 }}>{children}</MainLayout>{" "}
+          {/* Render the client component */}
         </Providers>
       </body>
     </html>

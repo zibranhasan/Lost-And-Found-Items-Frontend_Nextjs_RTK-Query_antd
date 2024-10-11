@@ -76,9 +76,6 @@ const Header = () => {
               onClick={handleDashboardClick}
               style={{
                 cursor: "pointer",
-                color: "inherit",
-                fontSize: "1.1rem",
-                fontFamily: "'Poppins', sans-serif",
               }}
             >
               Dashboard
@@ -97,8 +94,6 @@ const Header = () => {
                 style={{
                   padding: "0",
                   color: "inherit",
-                  fontSize: "1.1rem",
-                  fontFamily: "'Poppins', sans-serif",
                 }}
               >
                 Sign In
@@ -117,8 +112,6 @@ const Header = () => {
                 style={{
                   padding: "0",
                   color: "inherit",
-                  fontSize: "1.1rem",
-                  fontFamily: "'Poppins', sans-serif",
                 }}
               >
                 Sign Up
@@ -137,9 +130,6 @@ const Header = () => {
               style={{
                 cursor: "pointer",
                 color: "inherit",
-                fontSize: "1.1rem",
-                fontWeight: "bold",
-                fontFamily: "'Poppins', sans-serif",
               }}
             >
               Logout

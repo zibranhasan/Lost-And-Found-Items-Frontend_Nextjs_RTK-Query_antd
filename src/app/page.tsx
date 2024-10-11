@@ -14,10 +14,14 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import FoundItemReports from "./components/Found Item Reports/FoundItemReports";
 import BlogPage from "./components/BlogSection/blog";
 import ReviewSection from "./components/ReviewSection/ReviewSection";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export default function Home() {
   const { data, isLoading, error } = useGetAllLostItemsQuery({});
   const { data: FoundItemData } = useGetFoundItemsWithFilteringQuery({});
+  const currentUser = useSelector((state: RootState) => state.auth.user);
+  // console.log("currentUser", currentUser);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading items</div>;
