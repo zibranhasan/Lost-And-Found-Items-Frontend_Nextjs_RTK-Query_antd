@@ -1,22 +1,18 @@
 .foundItemReports {
-  padding: 20px 20px;
-  background-color: #f8f9fa; /* Light background */
-  color: #333;
+  padding: 10px;
   margin: 0;
-  border-radius: 10px; /* Rounded corners for the component */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  border-radius: 10px;
 }
 
 .foundItemReports h2 {
-  font-size: 2.5rem; /* Increased font size */
-  margin-bottom: 20px;
-  margin-top: 0;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
   text-align: center;
-  color: #212529; /* Dark text for contrast */
-  padding: 10px; /* Padding around the text */
-  position: relative; /* To position the shadow */
+  color: #212529;
+  padding: 6px;
+  position: relative;
   background-color: #e9ecef; /* Optional background color */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 5px;
 }
 
 .foundItemReports h2::before {
@@ -24,48 +20,47 @@
   position: absolute;
   left: 0;
   right: 0;
-  height: 10px; /* Height of the shadow */
-  background: rgba(0, 0, 0, 0.1); /* Shadow color */
-  border-radius: 5px; /* Match the header radius */
-  z-index: -1; /* Place it behind the text */
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: -1;
 }
 
 .sliderContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden; /* Hide overflow to prevent scrollbars */
+  overflow: hidden;
 }
 
 .cardsContainer {
   display: flex;
-  flex-direction: row; /* Display cards side by side */
-  overflow: hidden; /* Hide overflow to prevent scrollbars */
+  flex-direction: row;
   gap: 20px;
-  width: calc(100% + 20px); /* Prevent scrollbar by adjusting width */
-  transition: transform 0.5s ease; /* Smooth transition */
+  width: calc(100% + 20px);
+  transition: transform 0.5s ease;
 }
 
 .card {
-  flex: 0 0 calc(50% - 20px); /* Adjust width to fit two cards while accounting for gap */
+  flex: 0 0 calc(50% - 20px);
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  padding: 15px; /* Reduced padding for height adjustment */
+  padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .details {
   flex: 1;
   text-align: left;
-  padding-left: 15px; /* Add padding to the left for better spacing */
+  padding-left: 15px;
 }
 
 .photo {
@@ -77,9 +72,9 @@
 
 .image {
   border-radius: 5px;
-  height: 100px; /* Set a fixed height for images */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure image covers the area without overflow */
+  height: 100px;
+  width: auto;
+  object-fit: cover;
 }
 
 .card h3 {
@@ -104,4 +99,84 @@
 .viewLink:hover {
   color: #0056b3;
   text-decoration: underline;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    flex-direction: column;
+    padding: 15px;
+    align-items: center; /* Ensure all card content is centered */
+  }
+
+  .photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make the image container take full width */
+  }
+
+  .image {
+    height: 150px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .details {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .foundItemReports h2 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 10px;
+    align-items: center; /* Ensure the card content is centered */
+  }
+
+  .photo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .image {
+    height: 120px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .details {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
 }

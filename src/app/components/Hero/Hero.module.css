@@ -1,11 +1,13 @@
 .heroSection {
   position: relative;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
-  height: 50vh; /* Full viewport height */
+  height: 65vh; /* Adjust height for smaller screens later */
   background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Ensure background image is centered */
   color: #fff; /* White text color for better contrast */
   animation: slide 10s infinite; /* Apply animation */
 }
@@ -67,4 +69,44 @@
 
 .button:hover {
   background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .heroSection {
+    height: 60vh; /* Adjust height for tablet */
+  }
+
+  .headline {
+    font-size: 2.2rem; /* Adjust headline font size for tablets */
+  }
+
+  .button {
+    font-size: 1rem; /* Adjust button font size for smaller screens */
+    padding: 8px 16px; /* Adjust padding */
+  }
+
+  .buttonGroup {
+    gap: 15px; /* Adjust gap between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    height: 70vh; /* Adjust height for mobile */
+  }
+
+  .headline {
+    font-size: 1.8rem; /* Adjust headline font size for mobile */
+  }
+
+  .button {
+    font-size: 0.9rem; /* Further reduce button font size for mobile */
+    padding: 6px 12px; /* Adjust padding for mobile */
+  }
+
+  .buttonGroup {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    gap: 10px; /* Adjust gap for mobile */
+  }
 }

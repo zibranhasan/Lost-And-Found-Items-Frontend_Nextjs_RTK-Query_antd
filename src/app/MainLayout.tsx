@@ -84,30 +84,49 @@ export default function MainLayout({
     <Layout
       style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
     >
-      <Header style={{ backgroundColor: "#001529" }}>
+      <Header
+        style={{
+          background: "linear-gradient(90deg, #001529 0%, #004d80 100%)", // Gradient background
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow for depth
+        }}
+      >
         <Row
           justify="space-between"
           align="middle"
           style={{ width: "100%", height: "63px" }}
         >
+          {/* Logo Section */}
           <Col lg={8}>
             <Title
               level={3}
-              style={{ color: "white", margin: 0, fontSize: "25px" }}
+              style={{
+                color: "white",
+                margin: 0,
+                fontSize: "25px",
+                textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)", // Text shadow for logo
+              }}
             >
-              <Link href="/" style={{ color: "white" }}>
-                F&L items
+              <Link href="/" style={{ color: "white", textDecoration: "none" }}>
+                F&L Items
               </Link>
             </Title>
           </Col>
+
+          {/* Menu Section */}
           <Col xs={1} sm={1} md={16} lg={8}>
             <Menu
               theme="dark"
               mode="horizontal"
               items={menuItems}
-              style={{ lineHeight: "56px", borderBottom: "none" }}
+              style={{
+                lineHeight: "56px",
+                borderBottom: "none",
+                background: "transparent", // Remove default background
+              }}
             />
           </Col>
+
+          {/* Mobile Drawer for Menu */}
           <Drawer
             title="Menu"
             placement="right"
@@ -115,15 +134,22 @@ export default function MainLayout({
             onClose={() => setDrawerVisible(false)}
             visible={drawerVisible}
           >
-            <Menu theme="light" mode="vertical" items={menuItems} />
+            <Menu
+              theme="light"
+              mode="vertical"
+              items={menuItems}
+              style={{
+                background: "transparent",
+                border: "none",
+              }}
+            />
           </Drawer>
         </Row>
       </Header>
+
       <Layout style={{ flex: 1, display: "flex" }}>
         {user && <Sidebar />}
-        <Content style={{ flex: 1, margin: 0, background: "#f0f2f5" }}>
-          {children}
-        </Content>
+        <Content style={{ flex: 1, margin: 0 }}>{children}</Content>
       </Layout>
       <Footer />
     </Layout>
