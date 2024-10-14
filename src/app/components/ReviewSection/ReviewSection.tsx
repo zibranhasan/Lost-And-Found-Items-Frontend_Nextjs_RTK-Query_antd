@@ -42,10 +42,23 @@ const reviews = [
 
 const ReviewSection: React.FC = () => {
   return (
-    <div style={{ padding: "40px" }}>
-      <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
+    <div style={{ padding: "10px" }}>
+      <Title
+        level={2}
+        style={{
+          textAlign: "center",
+          marginBottom: "10px",
+          fontSize: "2.5rem", // Increased font size
+          marginTop: 0,
+          padding: "5px", // Padding around the text
+          position: "relative", // To position the shadow
+          backgroundColor: "#e9ecef", // Optional background color
+          borderRadius: "5px", // Rounded corners
+        }}
+      >
         User Reviews
       </Title>
+
       <Row gutter={[16, 16]}>
         {reviews.map((review) => (
           <Col xs={24} sm={12} md={8} lg={6} key={review.id}>
@@ -54,7 +67,7 @@ const ReviewSection: React.FC = () => {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  marginBottom: "20px",
+                  marginBottom: "5px",
                 }}
               >
                 <Avatar

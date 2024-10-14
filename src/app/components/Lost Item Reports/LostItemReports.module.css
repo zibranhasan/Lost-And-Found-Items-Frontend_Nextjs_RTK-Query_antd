@@ -1,5 +1,5 @@
 .foundItemReports {
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: #f8f9fa; /* Light background */
   color: #333;
   margin: 0;
@@ -8,11 +8,10 @@
 
 .foundItemReports h2 {
   font-size: 2.5rem; /* Increased font size */
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   margin-top: 0;
   text-align: center;
-  color: #212529; /* Dark text for contrast */
-  padding: 6px; /* Padding around the text */
+  padding: 5px; /* Padding around the text */
   position: relative; /* To position the shadow */
   background-color: #e9ecef; /* Optional background color */
   border-radius: 5px; /* Rounded corners */
@@ -24,7 +23,11 @@
   left: 0;
   right: 0;
   height: 10px; /* Height of the shadow */
-  background: rgba(0, 0, 0, 0.1); /* Shadow color */
+  background: linear-gradient(
+    90deg,
+    #001529 0%,
+    #004d80 100%
+  ); /* Shadow color */
   border-radius: 5px; /* Match the header radius */
   z-index: -1; /* Place it behind the text */
 }
@@ -40,7 +43,7 @@
   display: flex;
   flex-direction: row; /* Display cards side by side */
   overflow: hidden; /* Hide overflow to prevent scrollbars */
-  gap: 20px;
+  gap: 10px;
   width: calc(100% + 20px); /* Prevent scrollbar by adjusting width */
   transition: transform 0.5s ease; /* Smooth transition */
 }

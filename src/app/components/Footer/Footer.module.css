@@ -1,14 +1,13 @@
 .footer {
-  background-color: #001529;
-  height: fit-content;
+  background: linear-gradient(90deg, #001529 0%, #004d80 100%);
   color: #fff;
-  padding: 30px 20px; /* Reduced padding to decrease height */
+  padding: 30px 20px; /* Adjust padding as needed */
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Reduced space between sections */
-  position: relative; /* Needed for the gradient bar */
+  gap: 20px; /* Adjust space between sections */
+  position: relative; /* Ensure gradient bar works correctly */
 }
 
 .contact {

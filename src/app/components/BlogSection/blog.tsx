@@ -53,10 +53,23 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "40px" }}>
-      <Title level={2} style={{ textAlign: "center", marginBottom: "40px" }}>
+    <div style={{ padding: "0px 20px" }}>
+      <Title
+        level={2}
+        style={{
+          fontSize: "2.5rem",
+          marginBottom: "10px",
+          textAlign: "center",
+          color: "#212529",
+          padding: "5px",
+          position: "relative",
+          borderRadius: "5px",
+          backgroundColor: "#e9ecef",
+        }}
+      >
         Our Blog
       </Title>
+
       <Row gutter={[16, 16]}>
         {posts.map((post) => (
           <Col xs={24} sm={12} md={8} lg={6} key={post.id}>
@@ -68,6 +81,7 @@ const BlogPage: React.FC = () => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                marginBottom: "0",
               }}
               cover={
                 <img
@@ -84,7 +98,11 @@ const BlogPage: React.FC = () => {
               <Button
                 type="primary"
                 onClick={() => showModal(post)}
-                style={{ marginTop: "10px" }}
+                style={{
+                  marginTop: "10px",
+                  background:
+                    "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+                }}
               >
                 Read more
               </Button>

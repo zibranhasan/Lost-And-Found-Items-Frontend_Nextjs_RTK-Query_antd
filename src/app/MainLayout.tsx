@@ -82,7 +82,11 @@ export default function MainLayout({
 
   return (
     <Layout
-      style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
       <Header
         style={{
