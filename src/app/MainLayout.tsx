@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
 import { Layout, Menu, Row, Col, Typography, Button, Drawer } from "antd";
@@ -8,7 +8,7 @@ import Sidebar from "./components/Sidebar";
 import Link from "next/link";
 import Footer from "./components/Footer/Footer";
 import { logout } from "@/redux/features/authSlice";
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
@@ -21,15 +21,19 @@ export default function MainLayout({
 }) {
   const user = useSelector((state: RootState) => state.auth.user);
   const dispatch: AppDispatch = useDispatch();
+  const router = useRouter();
   const [drawerVisible, setDrawerVisible] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     dispatch(logout()); // Clear Redux state and token
-
-    Router.push("/"); // Redirect to login page
   };
-
+  useEffect(() => {
+    // Ensure redirection happens only on the client side
+    if (!user?.token) {
+      router.replace("/"); // Use `router.replace` to redirect
+    }
+  }, [user?.token, router]);
   const menuItems = [
     { label: <Link href="/">Home</Link>, key: "home" },
     {
