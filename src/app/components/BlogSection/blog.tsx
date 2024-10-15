@@ -53,18 +53,24 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "0px 20px" }}>
+    <div
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+        color: "white",
+        padding: "25px",
+      }}
+    >
       <Title
         level={2}
         style={{
           fontSize: "2.5rem",
           marginBottom: "10px",
           textAlign: "center",
-          color: "#212529",
+          color: "white",
           padding: "5px",
           position: "relative",
           borderRadius: "5px",
-          backgroundColor: "#e9ecef",
+          background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
         }}
       >
         Our Blog

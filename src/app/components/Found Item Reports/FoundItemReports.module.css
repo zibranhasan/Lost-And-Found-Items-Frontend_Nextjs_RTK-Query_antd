@@ -1,17 +1,16 @@
 .foundItemReports {
-  padding: 10px 10px;
+  padding: 10px 20px;
   margin: 0;
-  border-radius: 10px;
 }
 
 .foundItemReports h2 {
   font-size: 2.5rem;
   margin-bottom: 5px;
   text-align: center;
-  color: #212529;
+  color: white;
   padding: 5px;
   position: relative;
-  background-color: #e9ecef; /* Optional background color */
+  background: "linear-gradient(90deg, #001529 0%, #004d80 100%)";
   border-radius: 5px;
 }
 

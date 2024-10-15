@@ -16,6 +16,7 @@ import BlogPage from "./components/BlogSection/blog";
 import ReviewSection from "./components/ReviewSection/ReviewSection";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import ContactPage from "./components/ContactSection/page";
 
 export default function Home() {
   const { data, isLoading, error } = useGetAllLostItemsQuery({});
@@ -38,6 +39,7 @@ export default function Home() {
       <BlogPage />
       <ReviewSection />
       <AboutUs />
+      <ContactPage />
     </div>
   );
 }

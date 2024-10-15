@@ -42,17 +42,24 @@ const reviews = [
 
 const ReviewSection: React.FC = () => {
   return (
-    <div style={{ padding: "10px" }}>
+    <div
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+        color: "white",
+        padding: "25px",
+      }}
+    >
       <Title
         level={2}
         style={{
           textAlign: "center",
           marginBottom: "10px",
+          color: "white",
           fontSize: "2.5rem", // Increased font size
           marginTop: 0,
           padding: "5px", // Padding around the text
           position: "relative", // To position the shadow
-          backgroundColor: "#e9ecef", // Optional background color
+          background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
           borderRadius: "5px", // Rounded corners
         }}
       >

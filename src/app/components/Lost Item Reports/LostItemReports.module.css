@@ -1,19 +1,19 @@
 .foundItemReports {
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: #f8f9fa; /* Light background */
   color: #333;
   margin: 0;
-  border-radius: 10px; /* Rounded corners for the component */
 }
 
 .foundItemReports h2 {
   font-size: 2.5rem; /* Increased font size */
   margin-bottom: 5px;
   margin-top: 0;
+  color: white;
   text-align: center;
   padding: 5px; /* Padding around the text */
   position: relative; /* To position the shadow */
-  background-color: #e9ecef; /* Optional background color */
+  background: "linear-gradient(90deg, #001529 0%, #004d80 100%)";
   border-radius: 5px; /* Rounded corners */
 }
 

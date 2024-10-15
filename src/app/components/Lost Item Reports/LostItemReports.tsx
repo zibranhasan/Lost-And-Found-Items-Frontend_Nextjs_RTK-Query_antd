@@ -49,7 +49,14 @@ const RecentLostItems = ({ items }: RecentLostItemsProps) => {
   );
 
   return (
-    <section className={styles.foundItemReports}>
+    <section
+      className={styles.foundItemReports}
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+
+        padding: "20px",
+      }}
+    >
       <h2>Recent Lost Item Reports</h2>
       <div className={styles.sliderContainer}>
         <motion.div

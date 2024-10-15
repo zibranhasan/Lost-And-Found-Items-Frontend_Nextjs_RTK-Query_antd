@@ -43,7 +43,14 @@ const FoundItemReports = ({ foundItems }: { foundItems: TItem[] }) => {
   );
 
   return (
-    <section className={styles.foundItemReports}>
+    <section
+      className={styles.foundItemReports}
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+
+        padding: "20px",
+      }}
+    >
       <h2>Recent Found Item Reports</h2>
       <div className={styles.sliderContainer}>
         <motion.div

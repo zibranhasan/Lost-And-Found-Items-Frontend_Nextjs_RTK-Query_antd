@@ -6,7 +6,13 @@ import about2 from "@/assets/images/about2.png";
 
 const AboutUs = () => {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+        color: "white",
+      }}
+    >
       <div className={styles.textSection}>
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
