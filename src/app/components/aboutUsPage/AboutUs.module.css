@@ -1,0 +1,44 @@
+/* Ensure the overall container takes up the full page */
+.aboutUs {
+  padding: 0px 20px;
+  max-width: 800px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for the main content to provide padding and margin */
+.content {
+  flex: 1;
+  padding: 50px 20px;
+  max-width: 800px;
+}
+
+/* Scoped heading styles within a class */
+.heading h1,
+.heading h2 {
+  text-align: center;
+  color: #0056b3;
+}
+
+/* Text and list styles within the content class */
+.content p,
+.content li {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.content ol {
+  padding-left: 20px;
+}
+
+.content strong {
+  font-weight: bold;
+}
+
+/* Ensuring the header and footer are styled appropriately */
+.header,
+.footer {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}

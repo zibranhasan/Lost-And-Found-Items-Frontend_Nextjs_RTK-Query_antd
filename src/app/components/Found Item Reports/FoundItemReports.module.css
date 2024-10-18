@@ -1,0 +1,181 @@
+.foundItemReports {
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.foundItemReports h2 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  text-align: center;
+  color: white;
+  padding: 5px;
+  position: relative;
+  background: "linear-gradient(90deg, #001529 0%, #004d80 100%)";
+  border-radius: 5px;
+}
+
+.foundItemReports h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: calc(100% + 20px);
+  transition: transform 0.5s ease;
+}
+
+.card {
+  flex: 0 0 calc(50% - 20px);
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.details {
+  flex: 1;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+}
+
+.image {
+  border-radius: 5px;
+  height: 100px;
+  width: auto;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #212529;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #495057;
+}
+
+.viewLink {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.viewLink:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    flex: 0 0 100%;
+    flex-direction: column;
+    padding: 15px;
+    align-items: center; /* Ensure all card content is centered */
+  }
+
+  .photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make the image container take full width */
+  }
+
+  .image {
+    height: 150px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .details {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .foundItemReports h2 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 10px;
+    align-items: center; /* Ensure the card content is centered */
+  }
+
+  .photo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .image {
+    height: 120px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .details {
+    padding-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+}

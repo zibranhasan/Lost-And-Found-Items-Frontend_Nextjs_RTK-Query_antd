@@ -1,0 +1,112 @@
+.heroSection {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 65vh; /* Adjust height for smaller screens later */
+  background-size: cover; /* Ensure the image covers the entire section */
+  background-position: center; /* Ensure background image is centered */
+  color: #fff; /* White text color for better contrast */
+  animation: slide 10s infinite; /* Apply animation */
+}
+
+@keyframes slide {
+  0% {
+    background-image: url("/8e65ce2e-4def-4a93-92de-f76ed1582cc5.png");
+  }
+  20% {
+    background-image: url("/acce-1.jpg");
+  }
+  40% {
+    background-image: url("/acce-2.jpg");
+  }
+  60% {
+    background-image: url("/acce-3.jpg");
+  }
+  80% {
+    background-image: url("/acce-4.jpg");
+  }
+  100% {
+    background-image: url("/8e65ce2e-4def-4a93-92de-f76ed1582cc5.png");
+  }
+}
+
+.heroContent {
+  text-align: center;
+  z-index: 1; /* Ensure content is above the background */
+}
+
+.headline {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.button {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Semi-transparent background for buttons */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .heroSection {
+    height: 60vh; /* Adjust height for tablet */
+  }
+
+  .headline {
+    font-size: 2.2rem; /* Adjust headline font size for tablets */
+  }
+
+  .button {
+    font-size: 1rem; /* Adjust button font size for smaller screens */
+    padding: 8px 16px; /* Adjust padding */
+  }
+
+  .buttonGroup {
+    gap: 15px; /* Adjust gap between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    height: 70vh; /* Adjust height for mobile */
+  }
+
+  .headline {
+    font-size: 1.8rem; /* Adjust headline font size for mobile */
+  }
+
+  .button {
+    font-size: 0.9rem; /* Further reduce button font size for mobile */
+    padding: 6px 12px; /* Adjust padding for mobile */
+  }
+
+  .buttonGroup {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    gap: 10px; /* Adjust gap for mobile */
+  }
+}
