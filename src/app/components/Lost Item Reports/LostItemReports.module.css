@@ -1,5 +1,5 @@
 .foundItemReports {
-  padding: 10px 20px;
+  padding: 2px 20px;
   background-color: #f8f9fa; /* Light background */
   color: #333;
   margin: 0;
@@ -11,7 +11,7 @@
   margin-top: 0;
   color: white;
   text-align: center;
-  padding: 5px; /* Padding around the text */
+  padding: 0px 5px; /* Padding around the text */
   position: relative; /* To position the shadow */
   background: "linear-gradient(90deg, #001529 0%, #004d80 100%)";
   border-radius: 5px; /* Rounded corners */

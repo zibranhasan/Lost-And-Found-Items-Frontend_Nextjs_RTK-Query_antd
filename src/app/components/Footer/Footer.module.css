@@ -1,7 +1,7 @@
 .footer {
   background: linear-gradient(90deg, #001529 0%, #004d80 100%);
   color: #fff;
-  padding: 30px 20px; /* Adjust padding as needed */
+  padding: 0px 20px; /* Adjust padding as needed */
   text-align: center;
   display: flex;
   flex-direction: column;

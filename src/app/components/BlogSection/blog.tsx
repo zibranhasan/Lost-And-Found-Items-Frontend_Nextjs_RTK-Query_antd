@@ -79,40 +79,44 @@ const BlogPage: React.FC = () => {
       <Row gutter={[16, 16]}>
         {posts.map((post) => (
           <Col xs={24} sm={12} md={8} lg={6} key={post.id}>
-            <Card
-              hoverable
-              style={{
-                width: "100%",
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                marginBottom: "0",
-              }}
-              cover={
-                <img
-                  alt={post.title}
-                  src={post.photo}
-                  style={{ height: "150px", objectFit: "cover" }}
-                />
-              }
-            >
-              <Title level={4} style={{ margin: "10px 0", height: "50px" }}>
-                {post.title}
-              </Title>
-              <p style={{ flexGrow: 1 }}>{post.content.slice(0, 60)}...</p>
-              <Button
-                type="primary"
-                onClick={() => showModal(post)}
-                style={{
-                  marginTop: "10px",
-                  background:
-                    "linear-gradient(90deg, #001529 0%, #004d80 100%)",
-                }}
-              >
-                Read more
-              </Button>
-            </Card>
+          <Card
+  hoverable
+  style={{
+    width: "100%",
+    overflow: "hidden",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    marginBottom: "0",
+    height: "300px", // Set a fixed height for uniformity
+  }}
+  cover={
+    <img
+      alt={post.title}
+      src={post.photo}
+      style={{ height: "150px", objectFit: "cover" }} // Maintain consistent height for images
+    />
+  }
+>
+  <Title level={4} style={{ margin: "10px 0", height: "20px", overflow: "hidden" }}>
+    {post.title}
+  </Title>
+  <p style={{ flexGrow: 1, height: "40px", overflow: "hidden" }}>
+    {post.content.slice(0, 40)}...
+  </p>
+  <div style={{ marginTop: "auto" }}>
+    <Button
+      type="primary"
+      onClick={() => showModal(post)}
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+      }}
+    >
+      Read more
+    </Button>
+  </div>
+</Card>
+
           </Col>
         ))}
       </Row>
