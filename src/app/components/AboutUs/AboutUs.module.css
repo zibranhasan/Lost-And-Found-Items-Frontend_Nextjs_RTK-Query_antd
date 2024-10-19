@@ -30,9 +30,7 @@
   transition: color 0.3s ease;
 }
 
-.textSection h1:hover {
-  color: #ff8563; /* Slight hover effect */
-}
+
 
 .textSection h1::after {
   content: "";
