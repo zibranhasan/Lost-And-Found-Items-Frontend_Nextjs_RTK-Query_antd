@@ -88,20 +88,20 @@ const BlogPage: React.FC = () => {
     flexDirection: "column",
     justifyContent: "space-between",
     marginBottom: "0",
-    height: "300px", // Set a fixed height for uniformity
+    height: "350px", // Set a fixed height for uniformity
   }}
   cover={
     <img
       alt={post.title}
       src={post.photo}
-      style={{ height: "150px", objectFit: "cover" }} // Maintain consistent height for images
+      style={{ height: "190px", objectFit: "cover" }} // Maintain consistent height for images
     />
   }
 >
-  <Title level={4} style={{ margin: "10px 0", height: "20px", overflow: "hidden" }}>
+  <Title level={4} style={{ margin: "5px 0", height: "30px", overflow: "hidden" }}>
     {post.title}
   </Title>
-  <p style={{ flexGrow: 1, height: "40px", overflow: "hidden" }}>
+  <p style={{ flexGrow: 1, height: "40px",marginBottom:"8px", overflow: "hidden" }}>
     {post.content.slice(0, 40)}...
   </p>
   <div style={{ marginTop: "auto" }}>
