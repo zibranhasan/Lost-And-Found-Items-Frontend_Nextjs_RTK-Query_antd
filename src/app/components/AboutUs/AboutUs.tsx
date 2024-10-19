@@ -4,6 +4,8 @@ import styles from "./AboutUs.module.css"; // Import the CSS module
 import Image from "next/image";
 import about2 from "@/assets/images/about2.png";
 
+
+
 const AboutUs = () => {
   return (
     <div
@@ -15,9 +17,9 @@ const AboutUs = () => {
     >
       <div className={styles.textSection}>
         <motion.h1
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
         >
           About Us
         </motion.h1>

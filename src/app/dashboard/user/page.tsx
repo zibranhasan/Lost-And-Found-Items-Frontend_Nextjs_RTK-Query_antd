@@ -8,6 +8,11 @@ import {
 } from "@/redux/api/Api";
 import React from "react";
 import styles from "./page.module.css"; // Import the CSS module
+import HeroSection from "@/app/components/Hero/Hero";
+import BlogPage from "@/app/components/BlogSection/blog";
+import ReviewSection from "@/app/components/ReviewSection/ReviewSection";
+import AboutUs from "@/app/components/AboutUs/AboutUs";
+import ContactPage from "@/app/components/ContactSection/page";
 
 const Page = () => {
   const {
@@ -33,17 +38,15 @@ const Page = () => {
   const foundItems = foundItemsData?.response || [];
 
   return (
-    <div className={styles.pageContainer}>
-      {/* <h1 className={styles.heading}>Lost & Found Items</h1> */}
-      <div className={styles.section}>
-        {/* <h2 className={styles.subHeading}>Recent Lost Items</h2> */}
-        <RecentLostItems items={lostItems} />
-      </div>
-      <div className={styles.section}>
-        {/* <h2 className={styles.subHeading}>Found Items</h2> */}
-        <FoundItemReports foundItems={foundItems} />
-      </div>
-    </div>
+    <div style={{ margin: 0, padding: 0 }}>
+    <HeroSection />
+    <RecentLostItems items={lostItems} />
+    <FoundItemReports foundItems={foundItems} />
+    <BlogPage />
+    <ReviewSection />
+    <AboutUs />
+    <ContactPage />
+  </div>
   );
 };
 

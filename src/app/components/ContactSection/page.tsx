@@ -4,21 +4,23 @@ import React from "react";
 const ContactPage = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
+  const onFinish = (values:any) => {
     console.log("Success:", values);
     // You can process the form here (e.g., send to Formspree)
   };
 
   return (
     <section
-      className="py-16 lg:section"
-      id="contact"
-      style={{
-        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
-        color: "white",
-      }}
-    >
-      <div className="container mx-auto">
+    className="p-10 lg:section"
+    id="contact"
+    style={{
+      background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+      color: "white",
+      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)", // Correctly placed here
+    }}
+  >
+  
+      <div className="container mx-auto boxShadow: 0 10px 25px rgba(0, 0, 0, 0.1)">
         <div className="flex flex-col lg:flex-row">
           {/* Text section */}
           <div className="flex-1 flex justify-start items-center">
@@ -27,15 +29,15 @@ const ContactPage = () => {
                 Get in touch
               </h4>
               <h2 className="text-[45px] lg:text-[90px] leading-none mb-12 text-white">
-                Let's work <br /> together!
+                Let&apos;s work <br /> together!
               </h2>
             </div>
           </div>
 
           {/* Form section */}
           <div
-            className="flex-1 border rounded-2xl p-6"
-            style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+            className="flex-1 p-6"
+          
           >
             <Form
               form={form}
