@@ -17,7 +17,7 @@ const MyLostItemsPage = () => {
 
   return (
     <div className="lost-items-container">
-      <h1>My Lost Items</h1>
+   
       {myLostItems.length === 0 ? (
         <p>No lost items found.</p>
       ) : (

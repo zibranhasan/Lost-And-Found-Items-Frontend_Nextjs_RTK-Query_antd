@@ -101,7 +101,7 @@ const BlogPage: React.FC = () => {
   <Title level={4} style={{ margin: "5px 0", height: "30px", overflow: "hidden" }}>
     {post.title}
   </Title>
-  <p style={{ flexGrow: 1, height: "40px",marginBottom:"8px", overflow: "hidden" }}>
+  <p style={{ flexGrow: 1, height: "45px",marginBottom:"8px", overflow: "hidden" }}>
     {post.content.slice(0, 40)}...
   </p>
   <div style={{ marginTop: "auto" }}>

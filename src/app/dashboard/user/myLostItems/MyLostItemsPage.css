@@ -1,7 +1,9 @@
 .lost-items-container {
   padding: 20px;
 }
-
+.lost-items-container h1{
+   padding: 10px;
+}
 .lost-items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

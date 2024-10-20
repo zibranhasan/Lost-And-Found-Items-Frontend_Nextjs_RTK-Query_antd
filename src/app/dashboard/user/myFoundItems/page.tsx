@@ -22,6 +22,9 @@ const FoundItemsPage = () => {
 
   const foundItems = data?.response || [];
   const claims = claimsResponse?.response || [];
+  const claimsLength = (itemId: string) => {
+    return claims.filter((claim: any) => claim.foundItemId === itemId).length;
+  };
 
   const handleOpenModal = (item: any) => {
     setSelectedItem(item);
@@ -40,7 +43,6 @@ const FoundItemsPage = () => {
 
   return (
     <div>
-      <h1>My Found Items</h1>
       {foundItems.length === 0 ? (
         <p>No found items found.</p>
       ) : (
@@ -57,7 +59,7 @@ const FoundItemsPage = () => {
               key={item.id}
               style={{
                 border: "1px solid #ccc",
-                padding: "20px",
+                padding: "10px",
                 borderRadius: "8px",
                 overflow: "hidden",
               }}
@@ -68,7 +70,7 @@ const FoundItemsPage = () => {
                     width: "100%",
                     height: "150px",
                     overflow: "hidden",
-                    marginBottom: "10px",
+                    marginBottom: "5px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
@@ -93,9 +95,9 @@ const FoundItemsPage = () => {
               <p>Category: {item.category.name}</p>
               <p>Reported At: {new Date(item.createdAt).toLocaleString()}</p>
               <p>Updated At: {new Date(item.updatedAt).toLocaleString()}</p>
-              <Button type="primary" onClick={() => handleOpenModal(item)}>
-                Claims
+              <Button style={{marginTop:"5px"}} type="primary" onClick={() => handleOpenModal(item)}>View Claims for This Item<span style={{ marginLeft: "0px" }}>{claimsLength(item.id)}</span>
               </Button>
+
             </div>
           ))}
         </div>
