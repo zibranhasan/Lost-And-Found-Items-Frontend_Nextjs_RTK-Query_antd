@@ -18,6 +18,7 @@ const ClaimsPage = () => {
   if (error) return <Alert message="Error fetching claims" type="error" />;
 
   const claims = claimsResponse?.response || [];
+  console.log("claims.foundItem.photo", claims?.foundItem?.photo)
 
   const handleDelete = async (claimId: string) => {
     console.log(claimId);
@@ -52,7 +53,7 @@ const ClaimsPage = () => {
                   <div style={{ height: "200px", overflow: "hidden" }}>
                     <Image
                       alt={claim.foundItem.foundItemName}
-                      src={claim.foundItem.photo}
+                      src={claim?.foundItem?.photo}
                       width={500}
                       height={250} // Adjust image size for consistency
                       style={{

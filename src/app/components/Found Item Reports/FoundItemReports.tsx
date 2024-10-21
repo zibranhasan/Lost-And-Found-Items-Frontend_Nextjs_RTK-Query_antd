@@ -97,51 +97,6 @@ const FoundItemReports = ({ foundItems }: { foundItems: TItem[] }) => {
   );
 };
 
-// <section className={styles.foundItemReports}>
-//   <h2>Recent Found Item Reports</h2>
-//   <div className={styles.sliderContainer}>
-//     <motion.div
-//       className={styles.cardsContainer}
-//       key={currentIndex}
-//       initial={{ opacity: 0, x: 100 }}
-//       animate={{ opacity: 1, x: 0 }}
-//       exit={{ opacity: 0, x: -100 }}
-//       transition={{ duration: 0.5 }}
-//     >
-//       {currentItems.map((item: TItem) => (
-//         <motion.div
-//           key={item.id}
-//           className={styles.card}
-//           initial={{ opacity: 0, scale: 0.95 }}
-//           animate={{ opacity: 1, scale: 1 }}
-//           exit={{ opacity: 0, scale: 0.95 }}
-//           transition={{ duration: 0.3 }}
-//         >
-//           <div className={styles.cardContent}>
-//             <div className={styles.photo}>
-//               <Image
-//                 src={item.photo}
-//                 alt="photo"
-//                 height={150}
-//                 width={150}
-//                 className={styles.image}
-//               />
-//             </div>
-//             <div className={styles.details}>
-//               <h3>{item.foundItemName}</h3>
-//               {item.location && <p>Found at {item.location}</p>}
-//               <Link
-//                 href={`/dashboard/user/components/FoundItemsDetails/${item.id}`}
-//                 passHref
-//               >
-//                 View Full Report
-//               </Link>
-//             </div>
-//           </div>
-//         </motion.div>
-//       ))}
-//     </motion.div>
-//   </div>
-// </section>
+
 
 export default FoundItemReports;
