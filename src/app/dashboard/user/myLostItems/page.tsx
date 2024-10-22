@@ -4,11 +4,18 @@ import { useGetMyLostItemsQuery } from "@/redux/api/Api";
 import React from "react";
 import Image from "next/image"; // Import Image component
 import "./MyLostItemsPage.css"; // Import the custom CSS file
+import { Spin } from "antd";
 
 const MyLostItemsPage = () => {
   const { data, isLoading, isError, error } = useGetMyLostItemsQuery({});
 
-  if (isLoading) return <div>Loading Lost Items...</div>;
+  if (isLoading) {
+    return (
+      <div style={{ padding: '20px' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
   if (isError) return <div>Error fetching claims</div>;
 
   const myLostItems = data?.response || [];

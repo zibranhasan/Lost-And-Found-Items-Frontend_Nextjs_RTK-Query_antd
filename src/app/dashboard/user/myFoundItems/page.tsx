@@ -7,7 +7,7 @@ import {
   useGetAllClaimQuery,
   useUpdateClaimsMutation,
 } from "@/redux/api/ClaimApi";
-import { Button, Modal, Select } from "antd";
+import { Button, Modal, Select, Spin } from "antd";
 
 const FoundItemsPage = () => {
   const { data, isLoading, isError } = useGetMyFoundItemsQuery({});
@@ -17,7 +17,13 @@ const FoundItemsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<any>(null);
 
-  if (isLoading) return <div>Loading Found Items...</div>;
+  if (isLoading) {
+    return (
+      <div style={{ padding: '20px' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
   if (isError) return <div>Error fetching found items</div>;
 
   const foundItems = data?.response || [];

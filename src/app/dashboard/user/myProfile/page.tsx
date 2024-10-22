@@ -1,17 +1,19 @@
 "use client";
 
 import { useGetMyProfileQuery } from "@/redux/api/Api";
+import { Spin } from "antd";
 import React from "react";
 
 const ProfilePage = () => {
   const { data, isLoading, isError, error } = useGetMyProfileQuery({});
 
-  if (isLoading)
+  if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-lg font-semibold">Loading Profile...</div>
+      <div style={{ padding: '20px' }}>
+        <Spin size="large" />
       </div>
     );
+  }
   if (error)
     return (
       <div className="flex items-center justify-center h-screen">

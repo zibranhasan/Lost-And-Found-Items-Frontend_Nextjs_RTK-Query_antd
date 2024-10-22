@@ -28,10 +28,12 @@ const AllFoundItem = () => {
   });
   const [filteredItems, setFilteredItems] = useState<any[]>([]);
   const [image, setImage] = useState<File | null>(null); // State for image
+  const [loading, setLoading] = useState(false); // Loading state for submission
 
   const { data, isLoading, error } = useGetFoundItemsWithFilteringQuery({});
   const { data: userClaims } = useGetAllClaimQuery(""); // Fetch the user's claims
   const [createClaim] = useCreateClaimMutation();
+
 
   useEffect(() => {
     if (data?.response) {
@@ -59,6 +61,7 @@ const AllFoundItem = () => {
 
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Start loading when form is submitted
     try {
       let imageUrl = "";
       if (image) {
@@ -100,6 +103,8 @@ const AllFoundItem = () => {
       setImage(null);
     } catch (error: any) {
       alert("Error creating claim: " + error.message);
+    } finally {
+      setLoading(false); // Stop loading after the submission process
     }
   };
 
@@ -167,23 +172,24 @@ const AllFoundItem = () => {
                   textOverflow: "ellipsis", // Truncate long text
                 }}
               />
-              <Button
-                style={{
-                  backgroundColor: hasClaimedItem(item.id)
-                    ? "#d9d9d9"
-                    : "#4CAF50",
-                  color: hasClaimedItem(item.id) ? "#000" : "#fff",
-                  borderRadius: "4px",
-                  border: "none",
-                  fontWeight: "bold",
-                  marginTop: "10px", // Margin for spacing
-                  alignSelf: "center", // Center the button
-                }}
-                onClick={() => openModal(item)}
-                disabled={hasClaimedItem(item.id)}
-              >
-                {hasClaimedItem(item.id) ? "Claimed" : "Claim"}
-              </Button>
+            <Button
+  style={{
+    background: hasClaimedItem(item.id)
+      ? "#d9d9d9"
+      : "linear-gradient(90deg, #001529 0%, #004d80 100%)", // Use 'background' for gradient
+    color: hasClaimedItem(item.id) ? "#000" : "#fff",
+    borderRadius: "4px",
+    border: "none",
+    fontWeight: "bold",
+    marginTop: "10px", // Margin for spacing
+    alignSelf: "center", // Center the button
+  }}
+  onClick={() => openModal(item)}
+  disabled={hasClaimedItem(item.id)}
+>
+  {hasClaimedItem(item.id) ? "Claimed" : "Claim"}
+</Button>
+
             </Card>
           </Col>
         ))}
@@ -244,9 +250,13 @@ const AllFoundItem = () => {
               <label>Upload Verification Method (Photo):</label>
               <input type="file" onChange={handleImageChange} />
             </div>
-            <Button type="primary" htmlType="submit" className="w-full">
-              Submit Claim
-            </Button>
+            {loading ? (
+              <div className="text-center font-medium">Creating claim...</div> // Display loading message
+            ) : (
+              <Button type="primary" htmlType="submit" className="w-full">
+                Submit Claim
+              </Button>
+            )}
           </form>
         </Modal>
       )}

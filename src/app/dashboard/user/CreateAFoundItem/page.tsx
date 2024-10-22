@@ -9,12 +9,14 @@ import {
 import { jwtDecode } from "jwt-decode"; // Correct usage without destructuring
 import { useForm, FormProvider, Controller } from "react-hook-form"; // Import form methods
 import axios from "axios";
+import { Spin } from "antd";
 
 const FoundItemForm = () => {
   const router = useRouter();
   const { data: categoriesResponse, isLoading: categoriesLoading } =
     useGetAllCategoryQuery({});
   const [createFoundItem] = useCreateFoundItemMutation();
+  const [loading, setLoading] = useState(false); // Loading state for submission
 
   const methods = useForm(); // Initialize useForm
   const { control, handleSubmit, setValue, reset } = methods;
@@ -49,6 +51,7 @@ const FoundItemForm = () => {
   };
 
   const onSubmit = async (data: any) => {
+    setLoading(true); // Start loading when form is submitted
     try {
       let imageUrl = "";
       if (image) {
@@ -84,12 +87,20 @@ const FoundItemForm = () => {
       setIsNewCategory(false);
     } catch (error: any) {
       alert("Error creating found item: " + error.message);
+    } finally {
+      setLoading(false); // Stop loading after the submission process
     }
   };
 
   const categories = categoriesResponse?.response || [];
 
-  if (categoriesLoading) return <div>Loading categories...</div>;
+  if (categoriesLoading) {
+    return (
+      <div style={{ padding: '20px' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
@@ -204,12 +215,22 @@ const FoundItemForm = () => {
               />
             </label>
           </div>
-          <button
+          {/* <button
             type="submit"
-            className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-indigo-900 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Submit
-          </button>
+          </button> */}
+           {loading ? (
+              <div className="text-center font-medium">Creating Found Item...</div> // Display loading message
+            ) : (
+              <button
+              type="submit"
+              className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-indigo-900 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Submit
+            </button>
+            )}
         </form>
       </FormProvider>
     </div>

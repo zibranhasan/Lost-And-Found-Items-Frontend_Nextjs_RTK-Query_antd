@@ -1,26 +1,27 @@
 import { Input, Button, Form } from "antd";
-import React from "react";
 
 const ContactPage = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values:any) => {
+  const onFinish = (values: any) => {
     console.log("Success:", values);
     // You can process the form here (e.g., send to Formspree)
   };
 
   return (
     <section
-    className="p-10 lg:section"
-    id="contact"
-    style={{
-      background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
-      color: "white",
-      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)", // Correctly placed here
-    }}
-  >
-  
-      <div className="container mx-auto boxShadow: 0 10px 25px rgba(0, 0, 0, 0.1)">
+      className="p-10 lg:section"
+      id="contact"
+      style={{
+        background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+        color: "white",
+        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+      }}
+    >
+      <div
+        className="container mx-auto"
+        style={{ boxShadow: "0 0px 0px rgba(0, 0, 0, 0.1)" }} // Fixed boxShadow style
+      >
         <div className="flex flex-col lg:flex-row">
           {/* Text section */}
           <div className="flex-1 flex justify-start items-center">
@@ -35,10 +36,7 @@ const ContactPage = () => {
           </div>
 
           {/* Form section */}
-          <div
-            className="flex-1 p-6"
-          
-          >
+          <div className="flex-1 p-6">
             <Form
               form={form}
               onFinish={onFinish}

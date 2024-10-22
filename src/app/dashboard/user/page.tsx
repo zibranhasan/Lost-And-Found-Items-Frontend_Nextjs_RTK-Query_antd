@@ -12,7 +12,7 @@ import HeroSection from "@/app/components/Hero/Hero";
 import BlogPage from "@/app/components/BlogSection/blog";
 import ReviewSection from "@/app/components/ReviewSection/ReviewSection";
 import AboutUs from "@/app/components/AboutUs/AboutUs";
-import ContactPage from "@/app/components/ContactSection/page";
+import ContactPage from "@/app/components/ContactSection/contact";
 
 const Page = () => {
   const {
