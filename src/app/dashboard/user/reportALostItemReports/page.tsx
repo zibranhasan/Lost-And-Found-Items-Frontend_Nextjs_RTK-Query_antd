@@ -106,14 +106,15 @@ const LostItemForm = () => {
       // router.push("/components/allLostItem"); // Redirect to success page
     } catch (error: any) {
       alert("Error creating lost item: " + error.message);
-    }finally {
+    } finally {
       setLoading(false); // Stop loading after the submission process
     }
   };
 
   const categories = categoriesResponse?.response || [];
 
-  if (categoriesLoading) return <div className="p-10">Loading categories...</div>;
+  if (categoriesLoading)
+    return <div className="p-10">Loading categories...</div>;
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-10 bg-white shadow-md rounded-lg">
@@ -202,16 +203,18 @@ const LostItemForm = () => {
         </div>
 
         {loading ? (
-              <div className="text-center font-medium">Creating Lost Item...</div> // Display loading message
-            ) : (
-              <button
-              type="submit"
-              className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-indigo-900 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Submit
-            </button>
-            )}
-
+          <div className="text-center font-medium">Creating Lost Item...</div> // Display loading message
+        ) : (
+          <button
+            type="submit"
+            style={{
+              background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+            }}
+            className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Submit
+          </button>
+        )}
       </form>
     </div>
   );

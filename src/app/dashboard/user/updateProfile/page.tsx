@@ -147,14 +147,16 @@ const ProfilePage = () => {
             />
           </div>
           <div className="flex justify-end">
-          <button
-  type="submit"
-  disabled={isUpdating}
-  className="px-6 py-3 text-white text-lg font-semibold rounded-lg bg-gradient-to-r from-indigo-900 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-4 focus:ring-indigo-400"
->
-  {isUpdating ? "Updating..." : "Update Profile"}
-</button>
-
+            <button
+              type="submit"
+              disabled={isUpdating}
+              style={{
+                background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+              }}
+              className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              {isUpdating ? "Updating..." : "Update Profile"}
+            </button>
           </div>
         </form>
       </Modal>
