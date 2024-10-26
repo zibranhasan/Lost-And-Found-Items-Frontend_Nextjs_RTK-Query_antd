@@ -1,11 +1,7 @@
 "use client";
 
-
-
 import HeroSection from "./components/Hero/Hero";
-
 import RecentLostItems from "./components/Lost Item Reports/LostItemReports";
-
 import {
   useGetAllLostItemsQuery,
   useGetFoundItemsWithFilteringQuery,
@@ -16,7 +12,7 @@ import BlogPage from "./components/BlogSection/blog";
 import ReviewSection from "./components/ReviewSection/ReviewSection";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import ContactPage from "./components/ContactSection/contact";
+import Contact from "./components/ContactSection/Contact";
 
 export default function Home() {
   const { data, isLoading, error } = useGetAllLostItemsQuery({});
@@ -39,7 +35,7 @@ export default function Home() {
       <BlogPage />
       <ReviewSection />
       <AboutUs />
-      <ContactPage />
+      <Contact />
     </div>
   );
 }

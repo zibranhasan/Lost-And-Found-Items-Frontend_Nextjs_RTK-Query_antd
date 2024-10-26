@@ -12,7 +12,7 @@ import HeroSection from "@/app/components/Hero/Hero";
 import BlogPage from "@/app/components/BlogSection/blog";
 import ReviewSection from "@/app/components/ReviewSection/ReviewSection";
 import AboutUs from "@/app/components/AboutUs/AboutUs";
-import ContactPage from "@/app/components/ContactSection/contact";
+import Contact from "@/app/components/ContactSection/Contact";
 
 const Page = () => {
   const {
@@ -39,14 +39,14 @@ const Page = () => {
 
   return (
     <div style={{ margin: 0, padding: 0 }}>
-    <HeroSection />
-    <RecentLostItems items={lostItems} />
-    <FoundItemReports foundItems={foundItems} />
-    <BlogPage />
-    <ReviewSection />
-    <AboutUs />
-    <ContactPage />
-  </div>
+      <HeroSection />
+      <RecentLostItems items={lostItems} />
+      <FoundItemReports foundItems={foundItems} />
+      <BlogPage />
+      <ReviewSection />
+      <AboutUs />
+      <Contact />
+    </div>
   );
 };
 

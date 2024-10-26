@@ -14,10 +14,6 @@ import { useRouter } from "next/navigation";
 import { loginUser } from "@/services/actions/userLogin";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/features/authSlice";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
 
 const theme = createTheme();
 
@@ -46,7 +42,7 @@ const LoginPage = () => {
 
         // Redirect based on the user's role
         if (res.data.role === "ADMIN") {
-          router.push("/dashboard/admin");
+          router.push("/dashboard/admin/manageUserAccounts");
         } else {
           router.push("/dashboard/user");
         }
@@ -60,11 +56,14 @@ const LoginPage = () => {
   };
 
   const handleClickOpen = (role: "user" | "admin") => {
-    if (role === "user") {
-      setCredentials({ email: "user@gmail.com", password: "123456" });
-    } else {
-      setCredentials({ email: "admin@gmail.com", password: "123456" });
-    }
+    const newCredentials =
+      role === "user"
+        ? { email: "user@gmail.com", password: "123456" }
+        : { email: "admin@gmail.com", password: "123456" };
+
+    setCredentials(newCredentials);
+    setEmail(newCredentials.email); // Auto-fill email
+    setPassword(newCredentials.password); // Auto-fill password
     setOpen(true);
   };
 
@@ -154,7 +153,7 @@ const LoginPage = () => {
             onClick={() => handleClickOpen("user")}
             sx={{ mt: 2 }}
           >
-            Show User Credentials
+            User Credentials
           </Button>
           <Button
             variant="outlined"
@@ -162,11 +161,11 @@ const LoginPage = () => {
             onClick={() => handleClickOpen("admin")}
             sx={{ mt: 2 }}
           >
-            Show Admin Credentials
+            Admin Credentials
           </Button>
 
           {/* Dialog for Credentials */}
-          <Dialog open={open} onClose={handleClose}>
+          {/* <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Credentials</DialogTitle>
             <DialogContent>
               <Typography>Email: {credentials.email}</Typography>
@@ -177,7 +176,7 @@ const LoginPage = () => {
                 Close
               </Button>
             </DialogActions>
-          </Dialog>
+          </Dialog> */}
         </Box>
       </Container>
     </ThemeProvider>
