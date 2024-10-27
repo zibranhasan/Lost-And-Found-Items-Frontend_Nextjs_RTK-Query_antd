@@ -50,8 +50,24 @@ const userMenuItems = [
   {
     key: "Dashboard",
     icon: <UserOutlined />,
-    label: "My Dashboard",
+    label: "Dashboard",
     children: [
+      {
+        key: "my-dashboard",
+        label: <Link href="/dashboard/user/myDashboard">My Dashboard</Link>,
+      },
+      {
+        key: "my-claims",
+        label: <Link href="/dashboard/user/myClaims">My Claim Requests</Link>,
+      },
+      {
+        key: "my-lost-items",
+        label: <Link href="/dashboard/user/myLostItems">My Lost Items</Link>,
+      },
+      {
+        key: "my-found-items",
+        label: <Link href="/dashboard/user/myFoundItems">My Found Items</Link>,
+      },
       {
         key: "my-profile",
         label: <Link href="/dashboard/user/updateProfile">My Profile</Link>,
@@ -61,18 +77,6 @@ const userMenuItems = [
         label: (
           <Link href="/dashboard/user/changePassword">Change Password</Link>
         ),
-      },
-      {
-        key: "my-claims",
-        label: <Link href="/dashboard/user/myClaims">My Claim Requests</Link>,
-      },
-      {
-        key: "my-lost-items",
-        label: <Link href="/dashboard/user/myLostItems">My Lost Requests</Link>,
-      },
-      {
-        key: "my-found-items",
-        label: <Link href="/dashboard/user/myFoundItems">My Found Items</Link>,
       },
     ],
   },

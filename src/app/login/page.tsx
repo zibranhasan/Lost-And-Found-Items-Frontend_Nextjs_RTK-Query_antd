@@ -44,7 +44,7 @@ const LoginPage = () => {
         if (res.data.role === "ADMIN") {
           router.push("/dashboard/admin/manageUserAccounts");
         } else {
-          router.push("/dashboard/user");
+          router.push("/dashboard/user/myDashboard");
         }
       } else {
         setError("Login failed. Please check your credentials.");

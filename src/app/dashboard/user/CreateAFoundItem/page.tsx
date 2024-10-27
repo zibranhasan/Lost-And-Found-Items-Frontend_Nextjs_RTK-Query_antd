@@ -228,6 +228,9 @@ const FoundItemForm = () => {
           ) : (
             <button
               type="submit"
+              style={{
+                background: "linear-gradient(90deg, #001529 0%, #004d80 100%)",
+              }}
               className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Submit

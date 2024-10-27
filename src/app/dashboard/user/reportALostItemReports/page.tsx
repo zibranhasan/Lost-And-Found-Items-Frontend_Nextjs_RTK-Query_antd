@@ -8,6 +8,7 @@ import {
   useGetAllCategoryQuery,
 } from "@/redux/api/Api";
 import { jwtDecode } from "jwt-decode"; // Use this without destructuring
+import { Spin } from "antd";
 
 const LostItemForm = () => {
   const router = useRouter();
@@ -114,8 +115,11 @@ const LostItemForm = () => {
   const categories = categoriesResponse?.response || [];
 
   if (categoriesLoading)
-    return <div className="p-10">Loading categories...</div>;
-
+    return (
+      <div style={{ padding: "10px" }}>
+        <Spin size="large" />
+      </div>
+    );
   return (
     <div className="max-w-lg mx-auto mt-10 p-10 bg-white shadow-md rounded-lg">
       <h1 className="text-2xl font-bold mb-6">Report Lost Item</h1>
