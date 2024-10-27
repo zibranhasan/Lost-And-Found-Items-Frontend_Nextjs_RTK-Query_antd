@@ -9,7 +9,7 @@ const ProfilePage = () => {
 
   if (isLoading) {
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: "10px" }}>
         <Spin size="large" />
       </div>
     );

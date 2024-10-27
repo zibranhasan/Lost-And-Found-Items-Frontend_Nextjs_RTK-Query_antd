@@ -4,7 +4,7 @@ import {
   useGetMyProfileQuery,
   useUpdateMyProfileMutation,
 } from "@/redux/api/Api";
-import { Modal } from "antd";
+import { Modal, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 
 interface ProfileData {
@@ -55,12 +55,13 @@ const ProfilePage = () => {
     }
   };
 
-  if (isLoading)
+  if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="text-lg font-semibold">Loading Profile...</div>
+      <div style={{ padding: "10px" }}>
+        <Spin size="large" />
       </div>
     );
+  }
   if (isError)
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">

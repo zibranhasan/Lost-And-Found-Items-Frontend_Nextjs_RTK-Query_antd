@@ -41,7 +41,11 @@ const DashboardPage = () => {
   ];
 
   if (isClaimsLoading || isFoundItemsLoading || isLostItemsLoading) {
-    return <Spin size="large" />;
+    return (
+      <div style={{ padding: "20px" }}>
+        <Spin size="large" />
+      </div>
+    );
   }
 
   const claimsData = claimsRes?.response || [];
@@ -107,13 +111,13 @@ const DashboardPage = () => {
 
   return (
     <div className="p-6 bg-gradient-to-r from-[#001529] to-[#004d80] min-h-screen">
-      <Row gutter={16} className="mb-10">
+      <Row gutter={[16, 16]} className="mb-10">
         {[
           { title: "Claims", count: claimsCount },
           { title: "Found Items", count: foundItemsCount },
           { title: "Lost Items", count: lostItemsCount },
         ].map((item, index) => (
-          <Col span={8} key={index}>
+          <Col xs={24} sm={12} md={8} key={index}>
             <Card
               title={item.title}
               bordered={false}
@@ -146,8 +150,11 @@ const DashboardPage = () => {
         </Col>
       </Row>
 
-      <div className="p-6 bg-gray-50 rounded-lg mt-10 shadow-lg">
-        <Tabs defaultActiveKey="1">
+      <div className="p-4 sm:p-6 bg-gray-50 rounded-lg mt-10 shadow-lg">
+        <Tabs
+          defaultActiveKey="1"
+          tabPosition="top" // Makes sure tabs are at the top for better accessibility on mobile
+        >
           <TabPane tab="Claims" key="1">
             <Card
               title="Claims Table"
@@ -159,6 +166,7 @@ const DashboardPage = () => {
                 dataSource={claimsData}
                 loading={isClaimsLoading}
                 rowKey="id"
+                scroll={{ x: true }} // Enables horizontal scrolling on smaller screens
               />
             </Card>
           </TabPane>
@@ -173,6 +181,7 @@ const DashboardPage = () => {
                 dataSource={foundItemsData}
                 loading={isFoundItemsLoading}
                 rowKey="id"
+                scroll={{ x: true }}
               />
             </Card>
           </TabPane>
@@ -187,6 +196,7 @@ const DashboardPage = () => {
                 dataSource={lostItemsData}
                 loading={isLostItemsLoading}
                 rowKey="id"
+                scroll={{ x: true }}
               />
             </Card>
           </TabPane>

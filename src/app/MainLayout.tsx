@@ -135,7 +135,7 @@ export default function MainLayout({
           </Col>
 
           {/* Mobile Drawer for Menu */}
-          <Drawer
+          {/* <Drawer
             title="Menu"
             placement="right"
             closable={true}
@@ -151,7 +151,7 @@ export default function MainLayout({
                 border: "none",
               }}
             />
-          </Drawer>
+          </Drawer> */}
         </Row>
       </Header>
 

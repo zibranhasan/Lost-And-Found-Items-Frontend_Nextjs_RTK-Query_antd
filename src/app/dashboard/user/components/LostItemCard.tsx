@@ -3,22 +3,26 @@ import Image from "next/image";
 
 const LostItemCard = ({ item }: any) => {
   return (
-    <div style={cardStyle as React.CSSProperties}>
-      <div style={contentStyle as React.CSSProperties}>
+    <div className="border border-gray-300 rounded-lg p-4 mb-4 shadow-md transition-transform transform hover:scale-105">
+      <div className="flex flex-col md:flex-row items-center">
         <Image
           src={item.photo}
           height={150}
           width={150}
           alt="item's photo"
-          style={imageStyle as React.CSSProperties}
+          className="w-32 h-32 object-cover rounded-lg mb-4 md:mb-0 md:mr-4"
         />
-        <div style={infoStyle as React.CSSProperties}>
-          <h2>{item.name}</h2>
-          <p>{item.description}</p>
-          <p>Location: {item.location}</p>
+        <div className="flex-1">
+          <h2 className="text-lg font-semibold overflow-hidden text-ellipsis whitespace-nowrap">
+            {item.name}
+          </h2>
+          <p className="text-sm overflow-hidden text-ellipsis max-h-12 line-clamp-2">
+            {item.description}
+          </p>
+          <p className="text-xs text-gray-600">Location: {item.location}</p>
           <Link
             href={`/dashboard/user/components/edit/${item.id}`}
-            style={linkStyle as React.CSSProperties}
+            className="mt-2 text-blue-500 font-bold transition-colors hover:text-blue-700"
           >
             View Details
           </Link>
@@ -26,41 +30,6 @@ const LostItemCard = ({ item }: any) => {
       </div>
     </div>
   );
-};
-
-const cardStyle: React.CSSProperties = {
-  border: "1px solid #ccc",
-  borderRadius: "8px",
-  padding: "16px",
-  marginBottom: "16px",
-  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  transition: "transform 0.2s",
-};
-
-const contentStyle: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-};
-
-const imageStyle: React.CSSProperties = {
-  width: "150px",
-  height: "150px",
-  objectFit: "cover",
-  borderRadius: "8px",
-  marginRight: "16px",
-};
-
-const infoStyle: React.CSSProperties = {
-  display: "flex",
-  flexDirection: "column",
-};
-
-const linkStyle: React.CSSProperties = {
-  marginTop: "10px",
-  color: "#007bff",
-  textDecoration: "none",
-  fontWeight: "bold",
-  transition: "color 0.2s",
 };
 
 export default LostItemCard;
