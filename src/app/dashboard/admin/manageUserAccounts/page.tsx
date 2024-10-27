@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Table, Button, Tag, Card } from "antd";
+import { Table, Button, Tag, Card, Spin } from "antd";
 import {
   useGetAllLostItemsQuery,
   useGetAllUsersDataQuery,
@@ -96,7 +96,11 @@ const UserList = () => {
   };
 
   if (isLoading) {
-    return <div className="text-center">Loading...</div>;
+    return (
+      <div style={{ padding: "20px" }}>
+        <Spin size="large" />
+      </div>
+    );
   }
 
   if (isError) {

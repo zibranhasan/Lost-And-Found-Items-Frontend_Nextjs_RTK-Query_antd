@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useGetLostItemsWithFilteringQuery } from "@/redux/api/Api"; // Adjust import as per your actual hook location
 import Image from "next/image";
+import { Spin } from "antd";
 
 const Page = () => {
   const [category, setCategory] = useState("");
@@ -22,7 +23,11 @@ const Page = () => {
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ padding: "10px" }}>
+        <Spin size="large" />
+      </div>
+    );
   }
 
   return (
